@@ -1,0 +1,178 @@
+\documentclass[a4paper]{report}
+
+\usepackage{amsfonts}
+\usepackage{amsmath,amssymb,amsthm,amsthm}
+\usepackage{mathtools}
+%\usepackage{dsfont}
+\usepackage{etoolbox}
+\usepackage{mathrsfs}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+
+\begin{document}
+\begin{center}
+\Large{Selective Harmonic Elimination (SHE)} 
+\end{center}
+
+The problem consists in eliminating the harmonics generated through switching of PWM converters to improve the quality of the output signal. 
+
+\subsection*{SHE methodology}
+
+An effective SHE methodology can be summarized in the following steps
+
+\subsubsection*{Step 1.} To obtain the Fourier coefficients of the odd harmonics, the only existing ones due to the symmetry of the PWM waveform. By chopping the PWM waveform $n$ times per quarter cycle, these Fourier coefficients are given by
+\begin{align}\label{eq:fourierCoeff}
+	b_k = -\frac{4V_{dc}}{k\pi}\left[1-2\sum_{i=1}^n(-1)^{i-1}\cos(k\alpha_i)\right] = -\frac{4V_{dc}}{k\pi}\left[1+2\sum_{i=1}^n(-1)^i\cos(k\alpha_i)\right]
+\end{align}
+where $k\in\{1,3,5,7,\ldots\}$ is the harmonic order, $n$ is the total number of switching angles per quarter fundamental cycle, $V_{dc}$ is the DC-link voltage and $\alpha_i$ is the optimal switching angle. Notice that \eqref{eq:fourierCoeff} can be manipulated into the form
+\begin{align*}
+	1+2\sum_{i=1}^n(-1)^i\cos(k\alpha_i) = -\frac{k\pi b_k}{4V_{dc}},
+\end{align*}
+leading to the following set of transcendental equations
+\begin{align}\label{eq:transcEq}
+	&1-2\cos(\alpha_1) + \ldots + (-1)^n2\cos(\alpha_n)= -\frac{\pi b_1}{4V_{dc}}\notag 
+	\\
+	&1-2\cos(3\alpha_1) + \ldots + (-1)^n2\cos(3\alpha_n)= -\frac{3\pi b_3}{4V_{dc}}\notag 
+	\\
+	&\vdots \notag 
+	\\
+	&1-2\cos(k\alpha_1) + \ldots + (-1)^n2\cos(k\alpha_n)= -\frac{k\pi b_k}{4V_{dc}}
+\end{align}
+	
+\subsubsection*{Step 2.} To convert the transcendental equations \eqref{eq:transcEq} into algebraic ones. This is done in the following way:
+\begin{itemize}
+	\item[2.1] We apply the change of variables $x_k = -(-1)^k\cos(\alpha_k)$ to the first equation in \eqref{eq:transcEq}, obtaining
+	\begin{align*}
+		1-2x_1-\ldots -2x_n = -\frac{\pi b_1}{4V_{dc}} \quad\longrightarrow\quad x_1+\ldots +x_n = \frac 12+\frac{\pi b_1}{8V_{dc}}=:s_1.
+	\end{align*}
+	\item[2.2] By considering the Chebyshev polynomials 
+	\begin{align*}
+		T_0(x) = 1, \quad T_1(x) = x, \quad T_{j+1}(x) = 2xT_j(x)-T_{j-1}(x)
+	\end{align*}
+	and their trigonometric definition 
+	\begin{align*}
+		T_j(x) = \cos(j\mbox{arccos}(x)),\quad |x|\leq 1,
+	\end{align*}
+	we have
+	\begin{align*}
+		&T_0(\cos(\alpha_i)) = 1
+		\\
+		&T_1(\cos(\alpha_i)) = \cos(\alpha_i)
+		\\
+		&T_2(\cos(\alpha_i)) = \cos(2\alpha_i) = 2\cos(\alpha_i)T_1(\cos(\alpha_i)) -T_0(\cos(\alpha_i)) = 2\cos^2(\alpha_i)-1
+		\\
+		&T_3(\cos(\alpha_i)) = \cos(3\alpha_i) = 2\cos(\alpha_i)T_2(\cos(\alpha_i)) -T_1(\cos(\alpha_i)) = 4\cos^3(\alpha_i)-3\cos(\alpha_i)
+	\end{align*}
+	Hence
+	\begin{align*}
+		1 & -2\cos(3\alpha_1) + \ldots + (-1)^n2\cos(3\alpha_n) 
+		\\
+		& = 1 -2\Big(4\cos^3(\alpha_1) - 3\cos(\alpha_1)\Big) + \ldots + (-1)^n2\Big(4\cos^3(\alpha_n) - 3\cos(\alpha_n)\Big)
+		\\
+		& = 1 -8\Big(\cos^3(\alpha_1) + \ldots + (-1)^n\cos^3(\alpha_n)\Big) + 6\Big(\cos(\alpha_1) + \ldots + (-1)^n\cos^3(\alpha_n)\Big).
+	\end{align*}
+	Repeating the same change of variables as before, we get
+	\begin{align*}
+		1 & -2\cos(3\alpha_1) + \ldots + (-1)^n2\cos(3\alpha_n) 
+		\\
+		& = 1 -8(x_1^3 + \ldots + x_n^3) + 6(x_1 + \ldots + x_n) = 1 -8(x_1^3 + \ldots + x_n^3) + 6s_1.
+	\end{align*}
+	This yields
+	\begin{align}
+		x_1^3 + \ldots + x_n^3 = \frac 18 + \frac 34 s_1 + \frac{3\pi b_3}{32V_{dc}} = \frac 12 + \frac{3\pi b_1}{32V_{dc}} + \frac{3\pi b_3}{32V_{dc}} =:s_3
+	\end{align}
+	\item[2.3] Iterating this procedure, we get
+	\begin{align}\label{eq:xequations}
+		&x_1 + \ldots + x_n = s_1
+		\\
+		&x_1^3 + \ldots + x_n^3 = s_3 
+		\\
+		&\vdots
+		\\
+		&x_1^{2n-1} + \ldots + x_n^{2n-1} = s_{2n-1}
+	\end{align}
+	where the coefficients $s_\ell$ are obtained through the recursive formula
+	\begin{align*}
+		T_{2n-1}(x)|_{x^{2n-1} = s_{2n-1}} = \frac 12\left(1+\frac{\pi b_{2n-1}}{4V_{dc}}\right).
+	\end{align*}
+\end{itemize}
+
+\subsubsection*{Step 2.} We have reduced our transcendental equations \eqref{eq:transcEq} to a series of polynomial equations in the form
+\begin{align}\label{eq:polynEq}
+	\sum_{i=1}^n x_i^{2\ell-1} = s_{2\ell-1}, \quad \ell = 1,\ldots,n.
+\end{align}
+To solve \eqref{eq:polynEq}, we look at the polynomial $P(x)$ whose roots are $\{x_i\}_{i=1}^n$, that is,
+\begin{align*}
+	P(x) = \prod_{i=1}^n (x-x_i) = p_0x^n + p_1x^{n-1} + \ldots + p_n = \sum_{m=0}^n p_m x^{n-m}.
+\end{align*}
+Expanding the logarithmic derivative at $x=\infty$, we get
+\begin{align*}
+	\frac{d}{dx}\ln(P(x)) = \frac{P'(x)}{P(x)} = \sum_{\ell\geq 0} \frac{s_\ell}{x^{\ell+1}} = \frac{s_0}{x} + \sum_{\ell\geq 1} \frac{s_\ell}{x^{\ell+1}}
+\end{align*}
+where, according to \eqref{eq:polynEq}, $s_\ell = \sum_{i=1}^n x_i^\ell$. Integrating in the variable $x$, and observing that $s_0=n$, we obtain
+\begin{align*}
+	\ln(P(x)) &= \int \left(\frac{s_0}{x} + \sum_{\ell\geq 1}\frac{s_\ell}{x^{\ell+1}}\right)\,dx 
+	\\
+	&= s_0\ln(x) + \sum_{\ell\geq 1} s_\ell\int x^{-\ell-1}\,dx = n\ln(x) - \sum_{\ell\geq 1} \frac{s_\ell}{\ell x^\ell} = \ln(x^n) - \sum_{\ell\geq 1} \frac{s_\ell}{\ell x^\ell}.
+\end{align*}
+Hence
+\begin{align*}
+	P(x) = \exp\left(\ln(x^n) - \sum_{\ell\geq 1} \frac{s_\ell}{\ell x^\ell}\right) = x^n\exp\left(-\sum_{\ell\geq 1} \frac{s_\ell}{\ell x^\ell}\right)
+\end{align*}
+
+Moreover, we can get rid of the multiplicative factor $x^n$ by dividing the above expression by $P(-x)$. This yields
+\begin{align}\label{eq:Pexpansion}
+	P(x) = (-1)^nP(-x)G\left(\frac 1x\right),
+\end{align}
+where
+\begin{align}\label{eq:Vexpansion}
+	G\left(\frac 1x\right) = \exp\left(V\left(\frac 1x\right)\right) = \exp\left(-2\sum_{\underset{\ell\; odd}{\ell\geq 1}} \frac{s_\ell}{\ell x^\ell}\right).
+\end{align}
+Besides, it is possible to determine an explicit expression of $G(1/x)$ as follows:
+\begin{itemize}
+	\item[1.] First of all, let us introduce the series expansion of $G(x)$ and $V(x)$:
+	\begin{align*}
+		& G(x) = g_0 + g_1x + g_2x^2 + \ldots = \sum_{m\geq 0} g_mx^m
+		\\
+		& V(x) = v_0 + v_1x + v_2x^2 + \ldots = \sum_{m\geq 0} v_mx^m.
+	\end{align*} 
+	
+	\item[2.] From \eqref{eq:Vexpansion}, we get
+	\begin{align*}
+		V\left(\frac 1x\right) = -2\sum_{\underset{\ell\; odd}{\ell\geq 1}} \frac{s_\ell}{\ell x^\ell} \quad\longrightarrow\quad V(x) = -2\sum_{\underset{\ell\; odd}{\ell\geq 1}} \frac{s_\ell}{\ell} x^\ell.
+	\end{align*}
+	Thus, the coefficients $v_m$ are given by $v_m=-2\frac{s_m}{m}$, for $m$ odd, and $v_m=0$, for $m$ even.
+	
+	\item[3.] From the expression $G(x) = \exp(V(x))$, we obtain
+	\begin{align*}
+		\frac{dG(x)}{dx} = \frac{dV(x)}{dx}G(x).
+	\end{align*}
+	Expanding both sides of the identity above, we get
+	\begin{align*}
+		g_1 + 2g_2x + 3g_3x^2 + \ldots &= (v_1 + 2v_2x + 3v_3x^2 + \ldots)(g_0 + g_1x + g_2x^2 + \ldots)
+		\\
+		&= (v_1g_0) + (2v_2g_0 + v_1g_1)x + (3v_3g_0 + 2v_2g_1 + v_1g_2)x^2 + \ldots 
+	\end{align*}
+	By equating the coefficients of the left and right-hand side, we thus find that
+	\begin{align*}
+		g_0 = 1, \quad g_m = \sum_{k=1}^m \frac km v_kg_{m-k}\quad\mbox{ for } m\geq 1.
+	\end{align*}
+	Since we already know the coefficients $v_m$, the coefficients $g_m$ are now fully determined.
+\end{itemize}
+From \eqref{eq:Pexpansion} we now have
+\begin{align*}
+	P(x) = (-1)^nP(-x)G\left(\frac 1x\right) = (-1)^nP(-x)\left(g_0 + \frac{g_1}{x} + \frac{g_2}{x^2} + \ldots\right),
+\end{align*}
+which gives
+\begin{align*}
+	\sum_{m=0}^n p_m x^{n-m} &= (-1)^n \left(\sum_{m=0}^n p_m (-x)^{n-m}\right)\left(\sum_{m\geq 0} g_m x^{-m}\right) 
+	\\
+	&= \left(\sum_{m=0}^n (-1)^m p_m x^{n-m}\right)\left(\sum_{m\geq 0} g_m x^{-m}\right).
+\end{align*}
+
+By equating once again the coefficients of the left and right-hand side, we thus find the expressions for $\{p_m\}_{m=0}^n$. This gives us the analytic expression of the polynomial $P(x)$. The solutions to \eqref{eq:xequations} will be the roots of this polynomial, and the switching angles $\{\alpha_k\}_{k=1}^n$ are then determined by inverting the identity
+\begin{align*}
+	x_k = -(-1)^k\cos(\alpha_k).
+\end{align*}
+\end{document}
