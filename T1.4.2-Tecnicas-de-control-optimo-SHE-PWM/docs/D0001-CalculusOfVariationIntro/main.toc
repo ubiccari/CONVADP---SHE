@@ -6,3 +6,6 @@
 \contentsline {subsection}{\numberline {1.1.3}Comparaci\IeC {\'o}n en optimizaci\IeC {\'o}n convencional y c\IeC {\'a}lculo de variaciones}{8}
 \contentsline {section}{\numberline {1.2}Control \IeC {\'O}ptimo}{8}
 \contentsline {subsection}{\numberline {1.2.1}Condiciones de Optimilidad - Princip\IeC {\'\i }o del m\IeC {\'\i }nimo de Pontryagin}{9}
+\contentsline {chapter}{\numberline {2}Problema SHE como un problema de control \IeC {\'o}ptimo}{11}
+\contentsline {section}{\numberline {2.1}Problema de control \IeC {\'o}ptimo para SHE}{12}
+\contentsline {section}{\numberline {2.2}Condiciones de optimalidad para el problema de control \IeC {\'o}ptimo para SHE}{12}
