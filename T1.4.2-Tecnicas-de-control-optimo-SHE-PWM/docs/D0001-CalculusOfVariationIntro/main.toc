@@ -1,0 +1,8 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n al c\IeC {\'a}lculo de variaciones y el control \IeC {\'o}ptimo}{5}
+\contentsline {section}{\numberline {1.1}La geod\IeC {\'e}sica, el camino m\IeC {\'a}s corto entre dos puntos }{5}
+\contentsline {subsection}{\numberline {1.1.1}Problema de optimizaci\IeC {\'o}n convencional}{5}
+\contentsline {subsection}{\numberline {1.1.2}Problema de c\IeC {\'a}lculo de variaciones}{7}
+\contentsline {subsection}{\numberline {1.1.3}Comparaci\IeC {\'o}n en optimizaci\IeC {\'o}n convencional y c\IeC {\'a}lculo de variaciones}{8}
+\contentsline {section}{\numberline {1.2}Control \IeC {\'O}ptimo}{8}
+\contentsline {subsection}{\numberline {1.2.1}Condiciones de Optimilidad - Princip\IeC {\'\i }o del m\IeC {\'\i }nimo de Pontryagin}{9}
