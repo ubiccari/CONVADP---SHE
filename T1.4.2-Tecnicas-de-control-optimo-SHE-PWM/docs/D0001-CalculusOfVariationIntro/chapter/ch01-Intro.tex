@@ -1,11 +1,11 @@
 \chapter{Introducción al cálculo de variaciones y el control óptimo}
-En este documento introduciré brevemente el cálculo de variaciones. Esta es un conocimiento necesario antes de poder entender la formulación de control óptimo y posiblemente el problema \emph{SHE} puede abordarse dentro de este marco. 
+En este documento introduciré brevemente el cálculo de variaciones. Este es un conocimiento necesario antes de poder entender la formulación de control óptimo.
 
-El cálculo de variaciones es el análogo a un problema de optimización con variable en $ y\in \mathbb{R}^N $. Com bien sabréis en un problema de optimización deberémos definir claramente la dimensión de la variable de optimización, podría ser un variable escalar, un vector de $\mathbb{R}^2$ o de una dimensión más grande. El cálculo de variaciones aborda un problema donde la variable $y$ tiene dimensión infinita, es decir es una función en sí. 
+El cálculo de variaciones es el análogo a un problema de optimización con variable en $ y\in \mathbb{R}^N $. Como bien sabréis en un problema de optimización deberémos definir claramente la dimensión de la variable de optimización, podría ser un variable escalar, un vector de $\mathbb{R}^2$ o un vector de dimensión más grande. Por otra parte, el cálculo de variaciones aborda un problema de optimización donde la variable $y$ tiene dimensión infinita, es decir es una función en sí. 
 
 \section{La geodésica, el camino más corto entre dos puntos }
 
-El problema típico para introducir el cálculo de variaciones es la búsqueda del camino más corto entre dos puntos, la geodésica \footnote{Obviamente el camino más corto que une a dos puntos es la recta, sin embargo por razones pedagógicas utilizaremos este ejemplo}. En general, los libros  suelen introducir este problema pasándo directamente al problema con variables como funciones pero dado que la propuesta es pasar de un problema de optimización en variable discreta a una problema de cálculo variacional empezaremos definiendo el problema de optimización con variable $y \in \mathbb{R}^N$
+El problema típico para introducir el cálculo de variaciones es la búsqueda del camino más corto entre dos puntos, la geodésica\footnote{Obviamente el camino más corto que une a dos puntos es la recta, sin embargo por razones pedagógicas utilizaremos este ejemplo}. En general, los libros  suelen introducir este problema pasándo directamente al problema con variables como funciones pero dado que la propuesta es pasar de un problema de optimización en variable discreta a una problema de cálculo variacional empezaremos definiendo el problema de optimización con variable $y \in \mathbb{R}^N$
 
 
 \subsection{Problema de optimización convencional}
@@ -24,6 +24,7 @@ Entonces, nos podemos preguntar cuál debería ser los valores de las coordenada
     \centering
     \includegraphics[scale=0.6]{fig/img01.eps}
     \caption{Problema de optimización discreto}
+     \footnotesize La variable de optimización en este caso es un vector $\textcolor{red}{\bm{y} = (y_1,y_2,y_3,y_4)} \in \mathbb{R}^4$}
     \label{problema1}
 \end{figure}
 
