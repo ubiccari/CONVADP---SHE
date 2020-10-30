@@ -43,7 +43,7 @@ Entonces dado una función $f(\tau)$ podemos obtener los coeficiente de Fourier 
 \begin{gather}
     \frac{d \alpha_n}{d\tau} = \frac{2}{\pi}f(\tau) \sin((2m-1)\tau) \ | \ \alpha_n(0) = 0 \\
     \frac{d \beta_n}{d\tau} = \frac{2}{\pi}f(\tau) \cos((2m-1)\tau) \ | \ \beta_n(0) = 0
-\end{gather}
+\end{gather} 
 
 \section{Problema de control óptimo para SHE}
 De esta forma si tenemos un vector de objetivo $\bm{a}_T = [a_1^T,a_2^T,\dots,a_{M}^T] \in \mathbb{R}^M$ y  $\bm{b}_T = [b_1^T,b_2^T,\dots,b_{M}^T] \in \mathbb{R}^M$, donde $M$ es el número de armónicos impares de interés, podemos plantear el siguiente problema de control óptimo:
@@ -62,7 +62,7 @@ De esta forma si tenemos un vector de objetivo $\bm{a}_T = [a_1^T,a_2^T,\dots,a_
         \beta_m(0) = 0   \\
     \end{cases} \\
     \forall n \in \{ 1, \dots,M\}  \\ 
-    \text{sujeto a: } f_{min} < f(\tau) < f_{max} \ | \ \forall \ \tau \in (0,\pi)  
+    \text{sujeto a: } | f(\tau) | < f_{max} \ | \ \forall \ \tau \in (0,\pi)  
 \end{gather}
 
 Con tiempo final $T = \pi$
@@ -114,7 +114,7 @@ Entonces el Hamiltoniano se puede escribir como:
     H = G(\tau,\bm{p}_\alpha,\bm{p}_\beta) f(\tau)
 \end{gather}
 
-Aplicando el principio del mínimo de Pontryagin podemo hallar la forma de $f^*$ 
+Aplicando el principio del mínimo de Pontryagin podemos hallar la forma de $f^*$ 
 
 \begin{gather}
     \min_{f \in \mathcal{F}} H \rightarrow f^* = \begin{cases}
@@ -136,3 +136,7 @@ Obtenemos un control \emph{Bang-Bang}, es decir una función que toma solo dos v
 \end{figure}
 
 
+\begin{gather}
+    H = p^T f+ L \\
+    \dot{H} = \dot{p}^T f + p^T \ddot{x} + \dot{L}
+\end{gather}

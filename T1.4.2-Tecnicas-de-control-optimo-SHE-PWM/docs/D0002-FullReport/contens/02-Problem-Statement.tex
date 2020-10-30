@@ -1,0 +1,26 @@
+
+
+
+\section{Optimal control formulation}
+
+\begin{problem}
+    Given  $\bm{b}_T  \in \mathbb{R}^{n_b}$, we define a cost functional in this way: 
+        \begin{gather}
+        J[f(\tau)] = \Bigg[ || \bm{b}_T - \bm{\beta}(T)||^2 - \epsilon \int_0^{\pi/2} ||f(\tau)||^2 d\tau \Bigg] 
+    \end{gather}
+
+    where $ \bm{\beta}(\tau) = [\beta_1(\tau) \ \beta_3(\tau)  \ ... \  \beta_{N/2}(\tau) ]^T$, $||.||$ is a euclidean norm and $\epsilon$ is a penalization parameter to maximized the norm of control $f(\tau)$. This maximization and constraint $|f(\tau)|<1$, produce a \emph{bang-bang} control.
+    \newline
+
+    So, the optimal control problem can be write: 
+    \begin{gather}
+        \min_{|f(\tau) |<1} J[f(\tau)] \\
+        \text{suject to: }
+        \begin{cases}
+            \frac{d\beta_n}{d\tau} = (2/\pi) \sin(n\tau) f(\tau) & \tau \in [0,\pi/2]\label{dyn}\\
+            \beta_n(0) = 0
+        \end{cases} \\
+        \notag \forall n \in \{1,3,5,\dots,N/2 \}
+    \end{gather}
+\end{problem}
+
