@@ -32,6 +32,7 @@ gExt = coefficients_g(v);           % Coefficients of the polynomial G(x)
 
 g = gExt(:,2:end);
 alpha = zeros(lMa,n);
+val = zeros(1,lMa);
 
 % Computation of the switching angles: the i-th row of the matrix alpha
 % contains the n switching angles corresponding to the i-th value of the
@@ -48,7 +49,9 @@ for i = 1:lMa
     r = sort(roots(pVectorExt),'descend');  % The solutions of the 
                                             % algebraic equations are the
                                             % roots of P(x)
-                                           
+    
+    val(i) = algebraicValidation(pVector,g(i,:)); 
+    
     % Compute the switching angles
     
     for j = 1:n
