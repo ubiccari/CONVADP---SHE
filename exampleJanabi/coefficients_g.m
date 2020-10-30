@@ -1,6 +1,11 @@
+% Coefficients g_i in the polynomila G(x) - equation (13) in Janabi's paper 
+
 function g = coefficients_g(v)
 
 [lMa,n] = size(v);
+
+% The i-th row of the matrix g contains the 2n coefficients g_i
+% corresponding to the i-th value of the modulation index
 
 g = zeros(lMa,n+1);
 g(:,1) = 1;
