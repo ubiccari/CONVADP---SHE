@@ -1,4 +1,4 @@
-% Coefficients v_i in the polynomila V(x) - equation (14) in Janabi's paper 
+% Coefficients v_i in the polynomial V(x) - equation (14) in Janabi's paper 
 
 function v = coefficients_v(s)
 

@@ -10,8 +10,7 @@ B = size(b1,1);
 
 s = zeros(lMa,n);
 for i = 1:lMa
-    for j = 1:B
-        b(j) = b1(j,i);
-    end
+    for j = 1:B   b(1) = b1(1,i);
+    b(2) = b1(2,i);
     s(i,:) = coeffSHE(b,Vdc);
 end

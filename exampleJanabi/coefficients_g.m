@@ -1,4 +1,4 @@
-% Coefficients g_i in the polynomila G(x) - equation (13) in Janabi's paper 
+% Coefficients g_i in the polynomial G(x) - equation (13) in Janabi's paper 
 
 function g = coefficients_g(v)
 
