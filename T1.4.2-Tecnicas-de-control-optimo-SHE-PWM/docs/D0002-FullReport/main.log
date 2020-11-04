@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.21)  22 OCT 2020 06:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.5.21)  3 NOV 2020 09:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -620,78 +620,92 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--14
 
 ) (/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/03-NumericalResults.tex
 Package epstopdf Info: Source file: <img/EX01_surf.eps>
-(epstopdf)                    date: 2020-10-22 05:31:43
-(epstopdf)                    size: 91971 bytes
+(epstopdf)                    date: 2020-11-03 09:44:08
+(epstopdf)                    size: 238071 bytes
 (epstopdf)             Output file: <img/EX01_surf-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-10-22 05:31:44
-(epstopdf)                    size: 68001 bytes
+(epstopdf)                    date: 2020-11-03 09:44:10
+(epstopdf)                    size: 225413 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/EX01_surf-eps-converted-to.pdf img/EX01_surf.eps>
 (epstopdf)             \includegraphics on input line 6.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file /home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_surf-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/EX01_surf-eps-converted-to.pdf, id=27, 1085.05376pt x 285.065pt>
+<img/EX01_surf-eps-converted-to.pdf, id=27, 1446.40375pt x 285.065pt>
 File: img/EX01_surf-eps-converted-to.pdf Graphic file (type pdf)
 <use img/EX01_surf-eps-converted-to.pdf>
 Package pdftex.def Info: img/EX01_surf-eps-converted-to.pdf  used on input line 6.
-(pdftex.def)             Requested size: 488.26968pt x 128.27806pt.
+(pdftex.def)             Requested size: 650.87569pt x 128.27806pt.
 
-Overfull \hbox (70.016pt too wide) in paragraph at lines 6--7
+Overfull \hbox (232.62201pt too wide) in paragraph at lines 6--7
  [][] 
  []
 
 Package epstopdf Info: Source file: <img/EX01.eps>
-(epstopdf)                    date: 2020-10-22 05:31:45
-(epstopdf)                    size: 117243 bytes
+(epstopdf)                    date: 2020-11-03 09:44:11
+(epstopdf)                    size: 112193 bytes
 (epstopdf)             Output file: <img/EX01-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-10-22 05:32:36
-(epstopdf)                    size: 35436 bytes
+(epstopdf)                    date: 2020-11-03 09:42:38
+(epstopdf)                    size: 31912 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/EX01-eps-converted-to.pdf img/EX01.eps>
 (epstopdf)             \includegraphics on input line 14.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=img/EX01-eps-converted-to.pdf img/EX01.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <img/EX01-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-11-03 09:44:13
+(epstopdf)                    size: 32158 bytes.
 
 
 pdfTeX warning: pdflatex (file /home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/EX01-eps-converted-to.pdf, id=28, 504.88625pt x 300.12125pt>
+<img/EX01-eps-converted-to.pdf, id=28, 584.1825pt x 302.12875pt>
 File: img/EX01-eps-converted-to.pdf Graphic file (type pdf)
 <use img/EX01-eps-converted-to.pdf>
 Package pdftex.def Info: img/EX01-eps-converted-to.pdf  used on input line 14.
-(pdftex.def)             Requested size: 403.90953pt x 240.09732pt.
+(pdftex.def)             Requested size: 467.34662pt x 241.70332pt.
+
+Overfull \hbox (49.09294pt too wide) in paragraph at lines 14--15
+ [][] 
+ []
+
 Package epstopdf Info: Source file: <img/EX01_surf_3LVL.eps>
-(epstopdf)                    date: 2020-10-22 05:31:31
-(epstopdf)                    size: 62238 bytes
+(epstopdf)                    date: 2020-11-02 15:13:00
+(epstopdf)                    size: 65129 bytes
 (epstopdf)             Output file: <img/EX01_surf_3LVL-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-10-22 05:33:08
-(epstopdf)                    size: 46485 bytes
+(epstopdf)                    date: 2020-11-02 16:30:38
+(epstopdf)                    size: 50557 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/EX01_surf_3LVL-eps-converted-to.pdf img/EX01_surf_3LVL.eps>
 (epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file /home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/EX01_surf_3LVL-eps-converted-to.pdf, id=29, 1085.05376pt x 285.065pt>
+<img/EX01_surf_3LVL-eps-converted-to.pdf, id=29, 1446.40375pt x 285.065pt>
 File: img/EX01_surf_3LVL-eps-converted-to.pdf Graphic file (type pdf)
 <use img/EX01_surf_3LVL-eps-converted-to.pdf>
 Package pdftex.def Info: img/EX01_surf_3LVL-eps-converted-to.pdf  used on input line 22.
-(pdftex.def)             Requested size: 379.7745pt x 99.77423pt.
+(pdftex.def)             Requested size: 506.2489pt x 99.77423pt.
+
+Overfull \hbox (87.99522pt too wide) in paragraph at lines 22--23
+ [][] 
+ []
+
 Package epstopdf Info: Source file: <img/EX01_3LVL.eps>
-(epstopdf)                    date: 2020-10-22 05:31:32
-(epstopdf)                    size: 59063 bytes
+(epstopdf)                    date: 2020-11-02 15:13:01
+(epstopdf)                    size: 40574 bytes
 (epstopdf)             Output file: <img/EX01_3LVL-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-10-22 05:32:37
-(epstopdf)                    size: 19127 bytes
+(epstopdf)                    date: 2020-11-02 16:30:38
+(epstopdf)                    size: 12453 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/EX01_3LVL-eps-converted-to.pdf img/EX01_3LVL.eps>
 (epstopdf)             \includegraphics on input line 30.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: pdflatex (file /home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_3LVL-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/EX01_3LVL-eps-converted-to.pdf, id=30, 514.92375pt x 306.14375pt>
+<img/EX01_3LVL-eps-converted-to.pdf, id=30, 601.24625pt x 306.14375pt>
 File: img/EX01_3LVL-eps-converted-to.pdf Graphic file (type pdf)
 <use img/EX01_3LVL-eps-converted-to.pdf>
 Package pdftex.def Info: img/EX01_3LVL-eps-converted-to.pdf  used on input line 30.
-(pdftex.def)             Requested size: 308.95662pt x 183.68765pt.
+(pdftex.def)             Requested size: 360.75052pt x 183.68765pt.
 ) [3] [4 </home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_surf-eps-converted-to.pdf> </home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01-eps-converted-to.pdf> </home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf>] (/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/Z01-Ap.tex) (/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/main.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
@@ -710,7 +724,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  41i,16n,28p,493b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on /home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/main.pdf (5 pages, 343401 bytes).
+Output written on /home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/main.pdf (5 pages, 495564 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  85 compressed objects within 1 object stream

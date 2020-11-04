@@ -1,43 +1,23 @@
 clear 
-load('data/EX01/SurfaceFs.mat')
+load('data/EX05/SurfaceFs.mat')
 
 %% Extraemos las formas de onda para las soluciones S_1, S_2, S_3, S_4
 
-harmonics = [1 5 7 11 13]';
+harmonics = [1]';
 
 Na = 0;
 
 Nb = length(harmonics);
+Nt = Nt -1;
 
-
-for j=1:4
-    pathdir = "/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/anglesEX01/S_"+j ;
-    filename = '2lshe5A_1_Format2L.h';
-
-    data = fcn_ReadTrunkSHE('TWOLVL',pathdir);
-    IdxMod = linspace(data.maMin,data.maMax,data.NumData);
-    nangles = data.NumAngs;
-
-    tspan = linspace(0,pi/2,Nt);
-    %
-    sol(j).fvalues = zeros(length(IdxMod),Nt);
-    sol(j).bn = zeros(length(IdxMod),Nb);
-
-    for i = 1:length(IdxMod)
-        alphas = data.table(i,:);
-        sol(j).fvalues(i,:) = angles2fspan(alphas,tspan);
-        [~,sol(j).bn(i,:)] = f2anbn(sol(j).fvalues(i,:),tspan,Na,harmonics);
-    end
-    sol(j).title = "S_"+j;
-end
-% solucion que nos da el control optimo
-
-sol(5).fvalues = fopts;
-sol(5).title  = "OC";
+sol.fvalues = fopts;
+sol.title  = "OC";
 for i = 1:length(IdxMod)
-    [~,sol(5).bn(i,:)] = f2anbn(fopts(i,:),tspan,Na,harmonics);
+    [~,sol.bn(i,:)] = f2anbn(fopts(i,:),tspan,Na,harmonics);
 end
  
+
+
 %% Ideal bn 
 
 bvalues_exact = IdxMod/sqrt(3);
@@ -64,7 +44,7 @@ for j=1:5
             surf(tspan,IdxMod,-sol(j).fvalues);
 
     end
-    view(-90,90);shading interp
+    view(90,90);shading interp
     xlabel('\alpha(\tau)')
     ylabel('MI')
     xticks([0 pi/4 pi/2])
@@ -126,5 +106,4 @@ for j=1:5
     end
 end
 %
-print('../docs/D0002-FullReport/img/EX01.eps','-depsc')
 

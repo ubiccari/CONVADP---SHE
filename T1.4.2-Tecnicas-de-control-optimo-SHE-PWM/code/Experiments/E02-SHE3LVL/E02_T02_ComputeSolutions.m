@@ -1,7 +1,14 @@
 import casadi.*
 
 clear all;
-load('/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/EX02/bvalues.mat')
+
+pathdir = "/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/anglesEX02/S_1" ;
+filename = '2lshe5A_1_Format2L.h';
+
+data = fcn_ReadTrunkSHE('TWOLVL',pathdir);
+IdxMod = linspace(data.maMin,data.maMax,data.NumData);
+    
+bvalues = IdxMod/sqrt(3);
 
 %% Dynamics Definition 
 
@@ -23,7 +30,7 @@ dynfcn = Function('f',{ts,Xs,fs},{ [dbs] });
 
 %%
 T = pi/2;
-Nt = 500;
+Nt = 400;
 tspan = linspace(0,T,Nt);
 dt = tspan(2) - tspan(1);
 %%
@@ -89,10 +96,10 @@ if plots
     pause(0.1)
 end
 
-fprintf("=================== iter ====================== :"+i+"/"+length(bvalues))
+fprintf("=================== iter ====================== :"+i+"/"+length(bvalues)+"\n")
 u0 = u_opt;
 
 end
 
 %%
-save('data/EX02/SurfaceFs','fopts')
+save('data/EX02/SurfaceFs','fopts','Nt')

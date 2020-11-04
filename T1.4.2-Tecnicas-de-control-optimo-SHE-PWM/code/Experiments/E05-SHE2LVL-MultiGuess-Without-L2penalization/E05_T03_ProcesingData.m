@@ -1,5 +1,5 @@
 clear 
-load('data/EX01/SurfaceFs.mat')
+load('data/EX05/SurfaceFs.mat')
 
 %% Extraemos las formas de onda para las soluciones S_1, S_2, S_3, S_4
 
@@ -8,8 +8,7 @@ harmonics = [1 5 7 11 13]';
 Na = 0;
 
 Nb = length(harmonics);
-
-
+Nt = Nt -1;
 for j=1:4
     pathdir = "/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/anglesEX01/S_"+j ;
     filename = '2lshe5A_1_Format2L.h';
@@ -64,7 +63,7 @@ for j=1:5
             surf(tspan,IdxMod,-sol(j).fvalues);
 
     end
-    view(-90,90);shading interp
+    view(90,90);shading interp
     xlabel('\alpha(\tau)')
     ylabel('MI')
     xticks([0 pi/4 pi/2])
@@ -74,8 +73,8 @@ for j=1:5
     %
     title(sol(j).title)
     ic = colorbar;
-    set(ic,'YTick',[-1 1])
-    colormap(mymap)
+    %set(ic,'YTick',[-1 1])
+    %colormap(mymap)
 
 end
 %%
