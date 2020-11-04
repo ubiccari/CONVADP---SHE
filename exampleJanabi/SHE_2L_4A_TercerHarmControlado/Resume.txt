@@ -1,0 +1,17 @@
+ Total number of continuous sets of solutions obtained: 3 
+ Set 1: Initial modulation index: 0.010000: Final modulation index: 1.120000:
+ Set 2: Initial modulation index: 0.010000: Final modulation index: 1.110000:
+ Set 3: Initial modulation index: 0.010000: Final modulation index: 1.110000:
+ Number of levels: 2 
+ Number of firing angles: 4 
+ Number of harmonics controlled: 4 
+ Maximum error accepted in the cost function: 1.000000e-05 
+ Minimum separation between firing angles: 0 
+ Maximum error based on fundamental harmonic (percentage): 1 
+ Sample rate of modulation index: 1.000000e-02 
+ Harmonics whose amplitude is adjusted to a reference: 3 
+ Amplitude reference for the harmonics: 0.1 
+ GA configuration: Population size: 1800 
+ GA configuration: Number of Generations: 4000 
+ GA configuration: Crossover: 9.000000e-01 
+ GA configuration: Convergence Threshold: 1.000000e-07 
