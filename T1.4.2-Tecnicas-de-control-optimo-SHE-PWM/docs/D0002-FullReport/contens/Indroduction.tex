@@ -1,0 +1,80 @@
+\section{Introduction}
+
+In this document, we propose  a optimal control  perspective of selective harmonic elimination problem (SHE) with symmetry of quarter wave and symmetry of half wave. 
+%
+In mathematical point of view, SHE problem can be seen as search of a square wave function  $f(\omega t ) \ | \ \omega t \in (0,2\pi)$ which have fixed a few Fourier coefficients. 
+\newline
+
+%
+In this way, the $f(\omega t)$ can be written in Fourier series as follows:
+
+\begin{gather}
+    f(\omega t ) = \sum_{n=1}^\infty [a_n \cos(n\omega t) + b_n \sin(n \omega t)] 
+\end{gather}
+
+Where $a_n$ and $b_n$ coefficients are:
+\begin{gather}
+    a_n = \frac{1}{\pi} \int_0^{2\pi} f(\omega t ) \cos(n\omega t)d(\omega t) \label{an} \\
+    b_n = \frac{1}{\pi} \int_0^{2\pi} f(\omega t ) \sin(n\omega t)d(\omega t) \label{bn}  
+\end{gather}
+
+\begin{problem}[SHE two levels]\label{SHEp}
+    Given  $\bm{b}_T = [b^1_T \ , \ b^3_T \  , \ b^5_T \ , \ \dots \ , \ b^{N_b/2}_T] \in \mathbb{R}^{N/2}$ and  $\bm{a}_T = [a^1_T \ , \ a^3_T \  , \ a^5_T \ , \ \dots \ , \ a^{N_a/2}_T] \in \mathbb{R}^{N/2}$, we search a wave form $f(\omega t ) \ | \ \omega t \in (0,\pi/2)$ such that $f$ only can take values  $\{-1,1\}$ and its Fourier coefficients $b_n$ satisfies $b_n=b_T^n$ and  $a_n=a_T^n \ | \ \forall n \in \{1,3,\dots,N/2 \}$. 
+\end{problem}
+
+In the typical formulation of this problem, the function $f(\omega t)$ can be represented by locations  where the function $f(\omega t)$ changes its value, this locations are named switching angles.
+%
+Given a some vectors $\bm{a}^T$ and $\bm{b}^T$, the number of switching angles $M$ is \emph{a priori} unknown, so it's necessary fixed it. If we name switching angles as $\bm{\phi} = [\phi_1,\phi_2,\dots,\phi_M] \in \mathbb{R}^M $, we can simplify the Fourier coefficients as follows:
+
+\begin{gather}
+    a_n(\bm{\phi})  = \dots  \ | \ \forall n \ odd \\
+    b_n(\bm{\phi})  =  \frac{4}{n\pi  } \bigg[ -1 + 2\sum_{i=1}^M  (-1)^{i+1}\cos(n\phi_i) \bigg] \ | \ \forall n \ odd
+\end{gather}
+
+With this expression, we can formulate the problem (\ref{SHEp}) as the next minimization problem:
+
+\begin{problem}[Minimization problem for SHE]\label{SHEp_clas}
+    \begin{gather}
+        \min_{\bm{\phi} \in \mathbb{R}^m} \sum_{n \ odd}^{N/2}  \Bigg[ (a_n(\bm{\phi}) - a^n_T)^2 +  (b_n(\bm{\phi}) - b^n_T)^2  \Bigg]\\
+        \text{subject to:} \begin{cases}
+            0 < \phi_1  \\
+            \phi_n < \phi_n+2 &  \forall n \in \{3,5,\dots,N/2-2 \}\\
+            \phi_{N/2} < \pi/2
+        \end{cases}
+    \end{gather}     
+\end{problem}
+
+This formulation don't give a clearly procedure to choose a number of angles.
+\newline
+
+We propose consider a search of a function $f(\omega t)$ directly. In this way, instead of looking for the switching angles $\bm{\phi} \in \mathbb{R}^M$, we look for a function $f(\omega t) \in \{ g(\omega t)  \in L^\infty([0,\pi/2])\ /\ |g(\omega t)| < 1\} $. 
+
+Thanks to fundamental calculus theorem, we can say:
+
+\begin{gather}
+    \alpha_n(\tau) = \frac{4}{\pi}\int_0^\tau f(\omega t) \sin(n\omega t)d(\omega t) 
+    \Rightarrow
+    \begin{cases} \label{ode}
+        \frac{\partial \alpha_n}{d\tau} & = \frac{4}{\pi}f(\tau)\cos(n\tau) \\  
+        \alpha_n(0) & = 0       
+    \end{cases}
+\end{gather}
+
+\begin{gather}
+    \beta_n(\tau) = \frac{4}{\pi}\int_0^\tau f(\omega t) \sin(n\omega t)d(\omega t) 
+    \Rightarrow
+    \begin{cases} \label{ode}
+        \frac{\partial \beta}{d\tau} & = \frac{4}{\pi}f(\tau)\sin(n\tau) \\  
+        \beta(0) & = 0       
+    \end{cases}
+\end{gather}
+
+
+% Cuando resolvemos la ecuación diferencial ordinaria (\ref{ode}) hasta tiempo $T = \pi/2$ obtenemos el valor del coeficiente de Fourier $b_n$.
+
+If we solve the ODE (\ref{ode}) from $\tau=0$ to $\tau=\pi/2$.
+% Este se puede ver como una ecuación diferencial ordinaria controlada donde los estados del sistema son $\beta_n$ y el control es $f(\tau) \ | \ \tau \in [0,\pi/2]$.
+%
+So, this ODE can see as control system, where $\alpha_n(\tau)$ and $\beta_n(\tau) \ | \ \forall n $ is the states and $f(\tau)$ is the control variable.
+%Entonces se puede plantear el problema de control cuyo objetivo es llevar el sistema $\beta_n(\tau)$ desde el estado nulo hasta $b_T^n$ para cada $n \in \{1,3,5,\dots,N/2 \}$ en un tiempo final $\tau_f = \pi/2$
+In this way, the problem (\ref{SHEp}) can be solve via optimal control problem. 

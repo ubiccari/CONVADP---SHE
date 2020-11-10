@@ -46,7 +46,7 @@ bvalues_exact = [bvalues_exact' zeros(data.NumData,Nb-1)];
 
 %%
 
-figure('unit','norm','pos',[0 0 0.5 0.35])
+figure('unit','norm','pos',[0 0 0.5 0.5])
 clf
 
 mymap = [0 0 1
