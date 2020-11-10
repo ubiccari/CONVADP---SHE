@@ -5,9 +5,9 @@ clear all;
 %% Create Solver
 
 harmonics = [1 3 5]';
-N1 = 100;
-N2 = 100;
-N3 = 100;
+N1 = 150;
+N2 = 150;
+N3 = 150;
 
 bT1_span = linspace(-2,2,N1);
 bT2_span = linspace(-2,2,N2);
@@ -16,10 +16,10 @@ bT3_span = linspace(-2,2,N3);
 %
 [bT1_ms,bT2_ms,bT3_ms] = ndgrid(bT1_span,bT2_span,bT3_span);
 %
-Nf = 2;
+Nf = 3;
 f_span = linspace(-1,1,Nf);
 
-Nt = 50;
+Nt = 20;
 T = pi/2;
 tspan = linspace(0,T,Nt);
 dt = tspan(2) - tspan(1);
