@@ -15,53 +15,77 @@ clear all
 % n: number of switching angles
 
 lMa = length(Ma);  
-Vdc = 1;              % DC-link voltage
-b1 = Vdc*Ma;          % first Fourier coefficient 
+Vdc = 1;                            % DC-link voltage
+b1 = Vdc*Ma;                        % first Fourier coefficient 
+b = zeros(lMa,n);
+for i = 1:lMa
+    b(i,1:size(b1,1)) = b1(:,i)';
+end
 
-s = coefficients_s(n,lMa,b1,Vdc);   % Coefficients s_i in the algebraic 
-                                    % equations (20) - reference to
-                                    % Janabi's paper
-                                    
-v = coefficients_v(s);              % Coefficients of the polynomial V(x) 
-                                    % equation (14) in Janabi's paper
+bTarget = zeros(n,lMa);             % Target
+for i = 1:lMa
+    bTarget(1,i) = b1(i);
+end
 
-                                    
-gExt = coefficients_g(v);           % Coefficients of the polynomial G(x) 
-                                    % equation (13) in Janabi's paper
+alpha = AnglesSHE(b,Vdc);
 
+ErrorAnglesMatr = alpha - data;
+ErrorAngles = norm(ErrorAnglesMatr,Inf);
 
-g = gExt(:,2:end);
-alpha = zeros(lMa,n);
-val = zeros(1,lMa);
-
-% Computation of the switching angles: the i-th row of the matrix alpha
-% contains the n switching angles corresponding to the i-th value of the
-% modulation index
+tspan = linspace(0,0.5*pi,1000);
+harmonics = [1 3 5 7];
+bFun = zeros(lMa,n);
 
 for i = 1:lMa
-    [gMatrix,gVector] = constructionMatrix_G(g(i,:));          
-    
-    % Compute the coefficients of the polynomial P(x) - equation (8) in
-    % Janabi's paper
-    
-    pVector = gMatrix\gVector;
-    pVectorExt = [1 pVector'];
-    r = sort(roots(pVectorExt),'descend');  % The solutions of the 
-                                            % algebraic equations are the
-                                            % roots of P(x)
-    
-    val(i) = algebraicValidation(pVector,g(i,:)); 
-    
-    % Compute the switching angles
-    
-    for j = 1:n
-        alpha(i,j) = acos((-1)^j*r(j));
-        if alpha(i,j) > 0.5*pi
-           alpha(i,j) = abs(alpha(i,j)-pi);  % Projection on (0,pi/2)
-        end
-    end
-    alpha(i,:) = sort(alpha(i,:));
+    fvalues = angles2fspanNEW(alpha(i,:),tspan);
+    [~,bn] = f2anbnNEW(fvalues,tspan,0,harmonics);
+    bFun(i,:) = bn';
 end
+bFun = bFun';
+
+bAngles = zeros(lMa,n);
+for i = 1:lMa
+    for k = 1:n
+        bAngles(i,k) = (-4*Vdc/(k*pi))*(1+2*sum(((-1).^(1:n)).*cos(k*alpha(i,:))));
+    end
+end
+bAngles = bAngles';
+
+bData = zeros(lMa,n);
+for i = 1:lMa
+    for k = 1:n
+        bData(i,k) = (-4*Vdc/(k*pi))*(1+2*sum(((-1).^(1:n)).*cos(k*data(i,:))));
+    end
+end
+bData = bData';
+
+close all
+
+figure(1)
+
+subplot(2,2,1)
+surf(ErrorAnglesMatr)
+title('Angles difference')
+
+subplot(2,2,2)
+for i = 1:lMa
+    plot(ErrorAnglesMatr(i,:))
+    hold on
+end
+title('Angles difference')
+
+subplot(2,2,3)
+surf(bFun-bTarget)
+title('Fourier coefficients difference')
+
+subplot(2,2,4)
+for i = 1:lMa
+    plot(bFun(:,i)-bTarget(:,i))
+    hold on
+end
+title('Fourier coefficients difference')
+
+set(gcf, 'Units', 'Normalized', 'OuterPosition', [0, 0.04, 0.9, 0.9])
 
 
 

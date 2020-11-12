@@ -1,4 +1,4 @@
-function [data,IdxMod,nangles] = format2mat(path)
+function [data,IdxMod,nangles] = format2mat_revised(path)
 
 fileID = fopen(path);
 %%

@@ -1,16 +1,14 @@
 % Coefficients s_i in the algebraic equations (20) - reference to Janabi's 
 % paper 
 
-function s = coefficients_s(n,lMa,b1,Vdc)
+function s = coefficients_s_ak(a,Vdc)
 
-b = zeros(1,n);
-B = size(b1,1);
+[lMa,n] = size(a);
+
 % The i-th row of the matrix s contains the n coefficients s_i
 % corresponding to the i-th value of the modulation index
 
 s = zeros(lMa,n);
 for i = 1:lMa
-    for j = 1:B   b(1) = b1(1,i);
-    b(2) = b1(2,i);
-    s(i,:) = coeffSHE(b,Vdc);
+    s(i,:) = coeffSHE_ak(a(i,:),Vdc);
 end
