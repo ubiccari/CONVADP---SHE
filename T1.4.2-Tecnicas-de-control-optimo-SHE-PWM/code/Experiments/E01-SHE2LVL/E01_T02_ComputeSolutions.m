@@ -1,7 +1,15 @@
 import casadi.*
 
 clear all;
-load('/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/bvalues.mat')
+
+%% Take bn for modulation index
+pathdir = "/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/anglesEX01/S_1" ;
+filename = '2lshe5A_1_Format2L.h';
+
+data = fcn_ReadTrunkSHE('TWOLVL',pathdir);
+IdxMod = linspace(data.maMin,data.maMax,data.NumData);
+    
+bvalues = IdxMod/sqrt(3);
 
 %% Dynamics Definition 
 
@@ -23,7 +31,7 @@ dynfcn = Function('f',{ts,Xs,fs},{ [dbs] });
 
 %%
 T = pi/2;
-Nt = 500;
+Nt = 400;
 tspan = linspace(0,T,Nt);
 dt = tspan(2) - tspan(1);
 %%
@@ -36,8 +44,6 @@ for it = 2:Nt
 end
 
 %%
-
-
 alpha = 1e-5;
 
 bTs = casadi.SX.sym('bT',size(bT));
@@ -54,45 +60,38 @@ S = nlpsol('S', 'ipopt', nlp,opt);
 fopts = zeros(length(bvalues),Nt-1);
 
 u0 = zeros(1,Nt-1);
-plots = false
+plots = false;
 
 for i = 1:length(bvalues)
 
-bT = [bvalues(i) 0 0 0 0]';
+    bT = [bvalues(i) 0 0 0 0]';
 
-lbg = [-ones(size(fst)),bT'];
-ubg = [+ones(size(fst)),bT'];
+    lbg = [-ones(size(fst)),bT'];
+    ubg = [+ones(size(fst)),bT'];
 
-r = S('x0',[u0(:);bT(:)], 'lbg',lbg,'ubg',ubg);
-  
+    r = S('x0',[u0(:);bT(:)], 'lbg',lbg,'ubg',ubg);
+    u_opt = r.x;
+    u_opt = reshape(full(u_opt(1:(Nt-1))),1,Nt-1);
+    
+    fopts(i,:) = u_opt;
+    %
+    X_opt = zeros(mb,Nt);
+    %X_opt(:,1) = [1;1];
+    for it = 2:Nt
+       X_opt(:,it)  =  full(X_opt(:,it-1) +  dt*(dynfcn(tspan(it-1),X_opt(:,it-1),u_opt(:,it-1))));
+    end
+    %
+    if plots 
+        subplot(1,2,1);plot(u_opt');title('u')
+        subplot(1,2,2);plot(X_opt');title('x')
+        pause(0.1)
+    end
 
-u_opt = r.x;
-
-u_opt = reshape(full(u_opt(1:(Nt-1))),1,Nt-1);
-%u_opt = sign(u_opt);
-
-fopts(i,:) = u_opt;
-%
-X_opt = zeros(mb,Nt);
-%X_opt(:,1) = [1;1];
-for it = 2:Nt
-   X_opt(:,it)  =  full(X_opt(:,it-1) +  dt*(dynfcn(tspan(it-1),X_opt(:,it-1),u_opt(:,it-1))));
-end
-%
-if plots 
-    subplot(1,2,1)
-    plot(u_opt');
-    title('u')
-    subplot(1,2,2)
-    plot(X_opt');
-    title('x')
-    pause(0.1)
-end
-
-fprintf("=================== iter ====================== :"+i+"/"+length(bvalues))
-u0 = u_opt;
+    fprintf("=================== iter ====================== :"+i+"/"+length(bvalues))
+    u0 = u_opt;
 
 end
 
 %%
-save('data/EX01/SurfaceFs','fopts')
+Nt = Nt -1 ;
+save('data/EX01/SurfaceFs','fopts','Nt')

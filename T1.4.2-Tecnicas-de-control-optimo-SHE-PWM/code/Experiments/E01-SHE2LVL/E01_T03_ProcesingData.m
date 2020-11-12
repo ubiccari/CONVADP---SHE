@@ -1,4 +1,5 @@
 clear 
+load('data/EX01/SurfaceFs.mat')
 
 %% Extraemos las formas de onda para las soluciones S_1, S_2, S_3, S_4
 
@@ -7,14 +8,15 @@ harmonics = [1 5 7 11 13]';
 Na = 0;
 
 Nb = length(harmonics);
-Nt = 499;
 
 
-for j=1:4
-    name_folder = ['/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/anglesEX01/S_',num2str(j)];
-    name_file = '/2lshe5A_1_Format2L.h';
-    %
-    [data,IdxMod,nangles]  = format2mat(fullfile(name_folder,name_file));
+for j=1:3
+    pathdir = "/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/anglesEX01/S_"+j ;
+    filename = '2lshe5A_1_Format2L.h';
+
+    data = fcn_ReadTrunkSHE('TWOLVL',pathdir);
+    IdxMod = linspace(data.maMin,data.maMax,data.NumData);
+    nangles = data.NumAngs;
 
     tspan = linspace(0,pi/2,Nt);
     %
@@ -22,19 +24,18 @@ for j=1:4
     sol(j).bn = zeros(length(IdxMod),Nb);
 
     for i = 1:length(IdxMod)
-        alphas = data(i,:);
+        alphas = data.table(i,:);
         sol(j).fvalues(i,:) = angles2fspan(alphas,tspan);
         [~,sol(j).bn(i,:)] = f2anbn(sol(j).fvalues(i,:),tspan,Na,harmonics);
     end
-    sol(j).title = "S_"+j;
+    sol(j).title = "Solution S_"+j;
 end
 % solucion que nos da el control optimo
-load('data/EX01/SurfaceFs.mat')
 
-sol(5).fvalues = fopts;
-sol(5).title  = "OC";
+sol(4).fvalues = fopts;
+sol(4).title  = "Solution OC";
 for i = 1:length(IdxMod)
-    [~,sol(5).bn(i,:)] = f2anbn(fopts(i,:),tspan,Na,harmonics);
+    [~,sol(4).bn(i,:)] = f2anbn(fopts(i,:),tspan,Na,harmonics);
 end
  
 %% Ideal bn 
@@ -44,19 +45,29 @@ bvalues_exact = [bvalues_exact' zeros(117,Nb-1)];
 
 %%
 
-figure('unit','norm','pos',[0 0 0.5 0.35])
+figure('unit','norm','pos',[0 0 0.3 0.55])
 clf
 
 mymap = [0 0 1
     0 1 0];
 
-for j=1:5
+for j=1:4
     
-    subplot(1,5,j);
-    surf(tspan,IdxMod,sol(j).fvalues);
-    view(0,90);shading interp
+    
+    subplot(2,2,j);
+    
+        sg = sign(mean(sol(j).bn(:,1)));
+
+    switch sg
+        case -1 
+            surf(tspan,IdxMod,sol(j).fvalues);
+        case 1
+            surf(tspan,IdxMod,-sol(j).fvalues);
+
+    end
+    view(90,90);shading interp
     xlabel('\alpha(\tau)')
-    ylabel('MI')
+    ylabel('m_a')
     xticks([0 pi/4 pi/2])
     xticklabels({'0','\pi/4','\pi/2'})
     xlim([0 pi/2])
@@ -75,12 +86,12 @@ print('../docs/D0002-FullReport/img/EX01_surf.eps','-depsc')
 
 figure('unit','norm','pos',[0 0 0.25 0.4])
 
-for j=1:5
+for j=1:4
     
 
-    subplot(2,5,j)
+    subplot(2,4,j)
     
-    sg = sign(sol(j).bn(1,1));
+    sg = sign(mean(sol(j).bn(:,1)));
 
     switch sg
         case 1
@@ -89,7 +100,7 @@ for j=1:5
             plot(  IdxMod,  -sol(j).bn - bvalues_exact );
     end
 
-    xlabel('MI')
+    xlabel('m_a')
     ylabel('\Delta')
     if j==1
     legend([repmat('\Delta b_{',Nb,1), num2str(harmonics,'%.2d'),repmat('}',Nb,1)])
@@ -98,7 +109,7 @@ for j=1:5
     %
         title(sol(j).title)
 
-    subplot(2,5,j+5)
+    subplot(2,4,j+4)
     
     
     switch sg
@@ -108,7 +119,7 @@ for j=1:5
             plot(  IdxMod,  sum((-sol(j).bn - bvalues_exact).^2,2));
     end
 
-    xlabel('MI')
+    xlabel('m_a')
     ylabel('\Delta')
     
     if j==1

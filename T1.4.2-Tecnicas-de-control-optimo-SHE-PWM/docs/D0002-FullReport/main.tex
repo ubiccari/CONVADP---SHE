@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{book}
 
 \include{settings}
 
@@ -9,20 +9,22 @@
 
 \maketitle
 
-\begin{abstract}
-    
-\end{abstract}
-
-\input{contens/01-Indroduction}
-\input{contens/02-Problem-Statement}
-\input{contens/03-NumericalResults}
-
+\tableofcontents
 \newpage
+
+\input{contens/P00/P00-Indroduction}
+
+\chapter{Open Loop Optimal Control}
+\input{contens/P01/P01-02-Problem-Statement}
+\input{contens/P01/P01-03-NumericalResults}
+
+\chapter{Feedback Optimal Control}
+\input{contens/P02/P02-01-IntroDynamicPrograming}
 \appendix
 
 \input{contens/Z01-Ap}
 
-
+ 
 \bibliographystyle{apalike}
 \bibliography{bib}
 

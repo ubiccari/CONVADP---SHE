@@ -1,0 +1,90 @@
+\section{SHE two levels with quarter-wave symmetry as dynamic programming problem}
+
+Con el fin de encontrar la solución al problema para distintos targets $\bm{a}_T$ y $\bm{b}_T$ consideraremos el cambio de variable $\bm{\beta}'(\tau) = \bm{\beta}(\tau) - \bm{b}_T$. De manera que, podemos plantear un problema de control donde el estado inicial el target $\bm{b}_T$ y cuyo objetivo es llevar el sistema al origen de coordenadas.
+\begin{problem}
+    Given  $\bm{b}_T  \in \mathbb{R}^{n_b}$, we define a cost functional in this way: 
+        \begin{gather}
+        J[f(\tau)] =  \frac{1}{2}|| \bm{\beta}(T)||^2  
+    \end{gather}
+
+
+    So, the optimization problem can be write: 
+    \begin{gather}
+        \min_{f \in \{-1,1\} } J[f(\tau)]) \\
+        \text{suject to: }
+        \begin{cases}
+            \frac{d\beta_n(\tau)}{d\tau} =  - (4/\pi) \sin(n\tau) f(\tau) & \tau \in [0,\pi/2]\label{dyn}\\
+            \beta_n(0) = b_T^n
+        \end{cases} \\
+        \notag \forall n \in \{1,3,5,\dots,N_b/2 \}
+    \end{gather}
+    
+\end{problem}
+
+Tomamo un discretización $\{\tau_0,\tau_1,\dots,\tau_{N_t} \}$ del intervalo $[0,\pi/2]$. Entonces podemos discretizar el problema anterior:
+
+\begin{problem}
+    Given  $\bm{b}_T  \in \mathbb{R}^{n_b}$,  the optimization problem can be write: 
+    \begin{gather}
+        \min_{\bm{f} \in \mathbb{R}^{N_t} } \frac{1}{2}||\bm{\beta}^{N_t}||^2 \\
+        \text{suject to: }
+        \begin{cases}
+            \beta_n^{i+1} = \beta_n^{i} - \Delta \tau (4/\pi) \sin(n\tau_i) f_\tau & \tau \in [0,\pi/2]\label{dyn}\\
+            \beta_n^0 = b_T^n
+        \end{cases} \\
+        \notag \forall n \in \{1,3,5,\dots,N/2 \}
+    \end{gather}
+
+\end{problem}
+
+\subsection{Dynamic programming}
+
+Función valor 
+
+\begin{gather}
+    v_t(\bm{b}_T) =  \min_{\bm{f} \in \mathbb{R}^{N_t-t} } \frac{1}{2}||\bm{\beta}^{t}||^2 \\
+    \text{suject to: }
+    \begin{cases}
+        \beta_n^{i+1} = \beta_n^{i} - \Delta \tau (4/\pi) \sin(n\tau_i) f_\tau & \tau \in [0,\pi/2]\label{dyn}\\
+        \beta_n^0 = b_T^n
+    \end{cases} \\
+    \notag \forall n \in \{1,3,5,\dots,N/2 \}
+\end{gather}
+
+
+
+
+Entonces la función valor de estado cumple la ecuación de Bellman, que en este caso se puede escribir como:
+\begin{gather}\label{BellmanEquationOptimo}
+    v_t(\bm{\beta}^t) = \min_{f \in \{ -1,1 \}}  v_{t+1}(\bm{\beta}^{t+1})  \\
+    v^{N_t}(\bm{\beta}^{N_t}) =  \frac{1}{2}|| \bm{\beta}^{N_t}||^2
+\end{gather}
+
+La función $v_t(\bm{\beta}^t)$ representa el mejor coste que se puede alcanzar desde el estado $\bm{\beta}^t$ en $(N_t-t)$ pasos. Es por ello que en $t=Nt$ el mejor coste que se puede alcanzar desde el punto $\bm{\beta}^t$ es el valor del coste final $\frac{1}{2} || \bm{\beta}^{N_t}||^2$
+
+
+Luego el control óptimo se puede calcular mediante la siguiente expresión 
+
+\begin{gather}
+    f^*(\tau,\bm{\beta}_t) = \min_{f \in \{ -1,1\}} v_t(\bm{\beta}_t)
+\end{gather}
+
+% \begin{algorithm}[!ht]
+%     \caption{\emph{Value Iteration}}\label{ValueIteration}
+%     \begin{algorithmic}[1]
+%         \Procedure{Value-Iteration}{$\mathcal{V}^*,tol$}
+%         \State $k \gets 0$
+%         \State $\mathcal{V}_k\gets \mathcal{V}^*$
+%         \While{$error\leq tol$}
+%             \State $k \gets k + 1$
+%             \For{$\forall s \in \Ss$}
+%                 \State $\mathcal{V}_k(s)\gets \mathcal{T}_v\mathcal{V}_{k-1}(s)$
+%             \EndFor
+%             \State $error \gets || \mathcal{V}_k - \mathcal{V}_{k-1}||_\infty$
+%         \EndWhile
+%         \State $\displaystyle \pi_k^*(s) = \arg \max_{a'\in \As} \bigg[ r(s,a') + \gamma \sum_{s'}p(s'|s,a') v_*(s')
+%         \bigg]$
+%         \State \textbf{return}: [$\mathcal{V}_k(s)$,$\pi_k^*(s)$]
+%         \EndProcedure
+%     \end{algorithmic}
+% \end{algorithm}

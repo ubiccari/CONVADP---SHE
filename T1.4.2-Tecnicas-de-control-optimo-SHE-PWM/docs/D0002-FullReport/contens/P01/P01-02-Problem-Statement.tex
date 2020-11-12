@@ -1,0 +1,134 @@
+
+\section{Optimal control formulation}
+
+In this section, we show the optimal control formulation for selective harmonic elimination for a two-level converter and three-level converter.
+
+\subsection{OC SHE in two levels for symmetry of half-wave} 
+
+\begin{problem}\label{OCP1}
+    Given  $\bm{a}_T  \in \mathbb{R}^{N_a}$ and $\bm{b}_T  \in \mathbb{R}^{N_b}$, we define a cost functional in this way: 
+        \begin{gather}
+        J[f(\tau)] = \Bigg[ || \bm{a}_T - \bm{\alpha}(T)||^2 + || \bm{b}_T - \bm{\beta}(T)||^2 - \epsilon \int_0^{\pi/2} ||f(\tau)||^2 d\tau \Bigg] 
+    \end{gather}
+
+    where:
+     \begin{gather}
+        \bm{\alpha}(\tau) = [\alpha_1(\tau) \ \alpha_3(\tau)  \ ... \  \alpha_{N_a/2}(\tau) ]^T \\
+        \bm{\beta}(\tau) = [\beta_1(\tau) \ \beta_3(\tau)  \ ... \  \beta_{N_b/2}(\tau) ]^T
+     \end{gather}
+     the $||.||$ is a euclidean norm and $\epsilon$ is a parameter to maximized the norm of control $f(\tau)$.
+    \newline
+
+    So, the optimal control problem can be write: 
+    \begin{gather}
+        \min_{|f(\tau) |<1} J[f(\tau)] \\
+        \notag \text{suject to: } \\
+        \notag \forall n \in \{1,3,5,\dots,N_a/2 \} \ \ 
+        \begin{cases}
+            \frac{d\alpha}{d\tau} = (4/\pi) \cos(n\tau) f(\tau) & \tau \in [0,\pi/2]\label{dyn}\\
+            \alpha(0) = 0
+        \end{cases} \\
+        \notag \forall n \in \{1,3,5,\dots,N_b/2 \} \ \ 
+        \begin{cases}
+            \frac{d\beta_n}{d\tau} = (4/\pi) \sin(n\tau) f(\tau) & \tau \in [0,\pi/2]\label{dyn}\\
+            \beta_n(0) = 0
+        \end{cases} \\
+    \end{gather}
+\end{problem}
+
+
+\subsection{OC SHE in two levels for symmetry of quarter-wave} 
+
+
+The symmetry of quarter wave implies:
+
+\begin{gather}
+    f(\omega t + \pi)     = -f(\omega t)  \ \ t \in (0,\pi)\\
+    f(\omega t + \pi/2)   = +f(\omega)    \ \ t \in (0,\pi/2)
+\end{gather}
+
+This two conditions simplify the expressions (\ref{an}) and (\ref{bn}), in this way:
+\begin{align}
+    a_n = & \  0 \ \ | \  \ \forall n \in \mathbb{Z}
+\end{align}
+\begin{align}
+    b_n = & \begin{cases}
+        (4/\pi) \int_0^{\pi/2} f(\omega t ) \sin(n\omega t)d(\omega t) & \text{ if } n \text{ odd} \\
+        0 & \text{ if } n \text{ even}
+    \end{cases}
+\end{align}
+
+So, in summary $f(\omega t )$ can be written as follows:
+
+\begin{gather}
+    f(\omega t ) = \sum_{n \ odd}^\infty  b_n \sin(n \omega t) \\
+    b_n = \frac{4}{\pi}\int_0^{\pi/2} f(\omega t ) \sin(n\omega t)d(\omega t) \ \ | \ \ n \ odd \label{bn_odd}
+\end{gather}
+
+
+Now in this context, we can define a SHE problem as follows:
+
+
+\begin{problem}\label{OCP1}
+    Given  $\bm{b}_T  \in \mathbb{R}^{n_b}$, we define a cost functional in this way: 
+        \begin{gather}
+        J[f(\tau)] = \Bigg[ || \bm{b}_T - \bm{\beta}(T)||^2 - \epsilon \int_0^{\pi/2} ||f(\tau)||^2 d\tau \Bigg] 
+    \end{gather}
+
+    where $ \bm{\beta}(\tau) = [\beta_1(\tau) \ \beta_3(\tau)  \ ... \  \beta_{N/2}(\tau) ]^T$, the $||.||$ is a euclidean norm and $\epsilon$ is a penalization parameter to maximized the norm of control $f(\tau)$.
+    \newline
+
+    So, the optimal control problem can be write: 
+    \begin{gather}
+        \min_{|f(\tau) |<1} J[f(\tau)] \\
+        \text{suject to: }
+        \begin{cases}
+            \frac{d\beta_n}{d\tau} = (4/\pi) \sin(n\tau) f(\tau) & \tau \in [0,\pi/2]\label{dyn}\\
+            \beta_n(0) = 0
+        \end{cases} \\
+        \notag \forall n \in \{1,3,5,\dots,N/2 \}
+    \end{gather}
+\end{problem}
+
+In SHE problem, we search a function $f(\tau) | \tau \in [0,\pi/2]$ whose only take a two values, $\{-1,1\}$. This is the reason to add $L^2$-penalization in control. This maximization of $L^2$-norm of control and the constraint $|f(\tau)|<1$ produce a \emph{bang-bang} control. In other words, the optimal control of this problem only take the values $\{-1,1\}$.
+
+Now, we show \emph{Bang-Bang} property in optimal control of problem (\ref{SHEp}). For this, we define a Hamiltonian $H$ as:
+\begin{gather}
+    H(\tau,\bm{p}(\tau),f(\tau)) = -\epsilon || f(\tau)||^2 + \frac{4}{\pi}\sum_{n} p_n(\tau) \sin(n \tau) f(\tau)
+\end{gather}
+
+where $\bm{p}(\tau) = [p_1(\tau),p_3(\tau),\dots,p_{N/2}(\tau)]^T$. Now, we can use follow condition of the minimum principle of Pontryagin:
+
+\begin{gather}\label{minH}
+    H(\tau,\bm{p}^*(\tau),f^*(\tau)) \leq  H(\tau,\bm{p}^*(\tau),f(\tau))
+\end{gather}
+
+Vemos que el el Hamiltoniano $H$ es un parábola invertida cuando nos fijamos en la variable  de control $f(\tau)$. Por lo tanto el óptimo siempre será los valores extremos $\{-1,1\}$
+
+Entonces 
+\begin{gather}
+    f^*(\tau) = \argmin_{f \in \{-1,1\}}  H(\tau,\bm{p}^*(\tau),f)
+\end{gather}
+
+We can obtain the optimal control as:
+\begin{gather}
+    f^*(\tau) = \begin{cases}
+        +1 \ \text{if}  \ \sum_{n} p_n^*(\tau) \sin(n\tau) < 0 \\
+        -1 \ \text{if}  \ \sum_{n} p_n^*(\tau) \sin(n\tau) > 0
+    \end{cases}
+\end{gather}
+
+So optimal control of  problem (\ref{SHEp}) is \emph{bang-bang}. 
+
+\subsection{SHE in three levels}
+
+For the SHE in three levels problem the before discussion can be used. The idea is change the constraint $|f(\tau)| < 1 $ by $0<f(\tau)<1$.  Thank to a symmetry of quarter-wave, if the function $f(\tau) \ | \ \tau \in [0,\pi/2]$  whose take a two values $\{0,1\}$, his representation in full wave $f(\tau) \ | \ \tau \in [0,2\pi]$ takes only three values: $\{-1,0,1\}$.
+
+So, We can obtain the optimal control of problem (\ref{OCP1}) but with control constraints $\{ 0<f(\tau)<1 \ | \ \tau \in [0,\pi/2] \}$ as:
+\begin{gather}
+    f^*(\tau) = \begin{cases}
+        1 \ \text{if}  \ \sum_{n} p_n^*(\tau) \sin(n\tau) < 0 \\
+        0 \ \text{if}  \ \sum_{n} p_n^*(\tau) \sin(n\tau) > 0
+    \end{cases}
+\end{gather}
+
