@@ -11,6 +11,8 @@ Nb = length(harmonics);
 Nt = Nt -1;
 for j=1:4
     pathdir = "/home/djoroya/Documentos/Software/GitHub/external/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/anglesEX01/S_"+j ;
+    pathdir = "/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/code/data/anglesEX01/S_"+j ;
+
     filename = '2lshe5A_1_Format2L.h';
 
     data = fcn_ReadTrunkSHE('TWOLVL',pathdir);
