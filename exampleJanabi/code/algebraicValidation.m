@@ -1,6 +1,7 @@
 function answ = algebraicValidation(p,g)
 
-algebraicEq = zeros(1,0.5*length(g));
+n = 0.5*length(g);
+algebraicEq = zeros(1,n);
 
 algebraicEq(1) = g(1) - 2*p(1);
 algebraicEq(2) = g(2) - p(1)*g(1);
