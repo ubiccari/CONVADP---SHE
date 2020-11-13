@@ -1,8 +1,8 @@
 function [an,bn] = f2anbn(fvalues,tspan,Na,bharmonics)
 
     
-    anfcn = @(f,n) (2/pi)*trapz(tspan,cos(n*tspan).*f);
-    bnfcn = @(f,n) (2/pi)*trapz(tspan,sin(n*tspan).*f);
+    anfcn = @(f,n) (4/pi)*trapz(tspan,cos(n*tspan).*f);
+    bnfcn = @(f,n) (4/pi)*trapz(tspan,sin(n*tspan).*f);
 
 
     an = zeros(Na,1);
