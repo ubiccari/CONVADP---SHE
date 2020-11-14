@@ -1,13 +1,13 @@
 \contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Our contributions}{6}{section.1.1}%
-\contentsline {chapter}{\numberline {2}Open Loop Optimal Control}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Optimal control formulation}{7}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}OC SHE in two levels for symmetry of quarter-wave}{8}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Numerical experiments}{10}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}OC for SHE with symmetry of quarter-cycle}{10}{subsection.2.2.1}%
-\contentsline {subsubsection}{Numerical result for SHE of two levels}{10}{section*.2}%
-\contentsline {subsubsection}{Numerical result for SHE of three levels}{11}{section*.3}%
-\contentsline {subsection}{\numberline {2.2.2}OC for SHE with symmetry of half-cycle}{11}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {3}Feedback Optimal Control}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}SHE with quarter-wave symmetry as dynamic programming problem}{15}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Dynamic programming}{16}{subsection.3.1.1}%
+\contentsline {section}{\numberline {1.1}Propuesta y motivación}{6}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Open Loop Optimal Control}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Formulación de control óptimo para el problema SHE}{9}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}OC SHE de dos niveles con simetría de cuarto de onda}{10}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Experimentos numéricos}{12}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}OCP for SHE with symmetry of quarter-cycle}{12}{subsection.2.2.1}%
+\contentsline {subsubsection}{Numerical result for SHE of two levels}{12}{section*.2}%
+\contentsline {subsubsection}{Numerical result for SHE of three levels}{13}{section*.3}%
+\contentsline {subsection}{\numberline {2.2.2}OC for SHE with symmetry of half-cycle}{13}{subsection.2.2.2}%
+\contentsline {chapter}{\numberline {3}Feedback Optimal Control}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}SHE with quarter-wave symmetry as dynamic programming problem}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Dynamic programming}{18}{subsection.3.1.1}%

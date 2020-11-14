@@ -1,70 +1,76 @@
 \chapter{Introduction}
 
-In this document, we propose  a optimal control  perspective of selective harmonic elimination problem (SHE) with symmetry of half cycle. 
 %
-In mathematical point of view, SHE problem can be seen as search of a square wave function  $f(\tau ) \ | \ \tau \in (0,2\pi)$ which have fixed a few Fourier coefficients. 
-\newline
+En este documento se propone una solución del problema Selective Harmonic Elimination (SHE) desde el punto de vista de la teoría del control. 
 %
-In this way, the $f(\tau)$ can be written in Fourier series as follows:
+El problema SHE consiste en la búsqueda de una función $\{ f(\tau ) \ | \ \tau \in [0,2\pi] \}$ dados unos pocos coeficientes de Fourier. Además esta función $f(\tau)$ solo podrá tomar valores en una discretización del intervalo $[-1,1]$. Nos centraremos en concreto en las funciónes $f(\tau)$ con simetría de media onda, es decir funciones tal que $f(\tau) = -f(\tau + \pi)$, por lo que la descripción de la función $f(\tau)$ queda determinada con sus valores en el intervalo $\tau \in [0,\pi]$. De esta forma, nos referiremos a una función $\{ f(\tau)  | \tau \in [0,\pi] \}$ cuyo desarrollo en serie de Fourier se puede escribir como:
 
 \begin{gather}
-    f(\tau ) = \sum_{i \in odd} a_n \cos(i\tau)+ \sum_{j \in odd}  b_n \sin(j \tau) 
+    f(\tau ) = \sum_{i \in odd} a_i \cos(i\tau)+ \sum_{j \in odd}  b_j \sin(j \tau) 
 \end{gather}
 
-Where $a_n$ and $b_n$ coefficients are:
+Donde $a_i$ y $b_j$  son:
 \begin{gather}
     a_i = \frac{2}{\pi} \int_0^\pi f(\tau ) \cos(i \tau)d\tau \ | \ \forall i \ odd \label{an}\\
     b_j = \frac{2}{\pi} \int_0^\pi f(\tau)  \sin(j \tau) d\tau \ | \ \forall j \ odd \label{bn}
 \end{gather}
 
 
-Donde se ha considerado que $f(\tau)$ tiene simetría de media onda por lo que  los coeficientes de Fourier $a_n$ y $b_n$ solo son distintos de cero solo cuando $n$ es impar. Entonces el problema de selective harmonic eliminaton se puede formular de la siguiente manera:
+Entonces el problema de SHE tomando solo los puntos $\{-1,1\}$ como discretización del intervalo $[-1,1]$, se puede formular de la siguiente manera:
 
-\begin{problem}[General SHE for two levels]\label{SHEp}
-    Given  a two set of odd numbers $\mathcal{E}_a$ and $\mathcal{E}_b$ with carinalities $|\mathcal{E}_a| = N_a$ and  $|\mathcal{E}_b| = N_b$, and given the target vectors $\bm{a}_T  \in \mathbb{R}^{N_a}$ and $\bm{b}_T  \in \mathbb{R}^{N_b}$, we search a wave form $f(\tau ) \ | \ \tau \in (0,\pi)$ such that $f(\tau)$ only can take values  $\{-1,1\}$ and its Fourier coefficients satisfies: $ a_i = (\bm{a}_T)_i \ | \ \forall i \in \mathcal{E}_a$ and  $b_j = (\bm{b}_T)_j \ \forall \ | \  j \in \mathcal{E}_b$. 
+\begin{problem}[SHE para dos niveles]\label{SHEp}
+    Dado dos conjuntos de números impares $\mathcal{E}_a$ y $\mathcal{E}_b$ con cardinalidades $|\mathcal{E}_a| = N_a$ y  $|\mathcal{E}_b| = N_b$ respectivamente, y dado los vectores objetivo $\bm{a}_T  \in \mathbb{R}^{N_a}$ y $\bm{b}_T  \in \mathbb{R}^{N_b}$, buscamos una función  $f(\tau ) \ | \ \tau \in (0,\pi)$ tal que $f(\tau)$ solo pueda tomar los valores  $\{-1,1\}$ y cuyos coeficientes de Fourier satisfagan: $ a_i = (\bm{a}_T)_i \ | \ \forall i \in \mathcal{E}_a$ y  $b_j = (\bm{b}_T)_j \ \forall \ | \  j \in \mathcal{E}_b$. 
 \end{problem}
 
 
-
-In the typical formulation of this problem, the function $f(\tau)$ can be represented by locations  where the function $f(\tau)$ changes its value, this locations are named switching angles.
+En la formulación típica de este problema se considera la búsqueda de las posiciones donde ocurren los cambios de la función, estas localizaciones son llamados ángulos de conmutación. Dado que la función $f(\tau)$ solo puede tomar los valores $\{-1,1\}$ los ángulos de conmutación determinan completamente la forma de $f(\tau)$.
 %
-Given a some vectors $\bm{a}^T$ and $\bm{b}^T$, the number of switching angles $M$ is \emph{a priori} unknown, so it's necessary fixed it. If we name switching angles as $\bm{\phi} = [\phi_1,\phi_2,\dots,\phi_M] \in \mathbb{R}^M $, we can simplify the Fourier coefficients as follows:
-
+Por otra parte, dado los vectores $\bm{a}^T$ y $\bm{b}^T$, el número de ángulos $M$ es \emph{a priori} desconocida, por lo que es necesario prefijarla sin un criterio muy claro.
+%
+Si denotamos ángulos de conmutación como $\bm{\phi} = [\phi_1,\phi_2,\dots,\phi_M] \in \mathbb{R}^M $,  podemos escribir los coeficientes de Fourier (\ref{an}) y (\ref{bn}) en función de $\bm{\phi}$ como: 
 \begin{gather}
     a_i(\bm{\phi})  = \dots  \ | \ \forall i \in \mathcal{E}_a \\
     b_j(\bm{\phi})  =  \frac{4}{j\pi  } \bigg[ -1 + 2\sum_{k=1}^M  (-1)^{k+1}\cos(n\phi_k) \bigg] \ | \ \forall j \in \mathcal{E}_b
 \end{gather}
 
-With this expression, we can formulate the problem (\ref{SHEp}) as the next minimization problem:
+De esta manera, dada la expresión anterior podemos formular el problema (\ref{SHEp}) como el siguiente problema de minimización:
 
-\begin{problem}[Minimization problem for SHE]\label{SHEp_clas}
-    Given  a two set of odd numbers $\mathcal{E}_a$ and $\mathcal{E}_b$ with carinalities $|\mathcal{E}_a| = N_a$ and  $|\mathcal{E}_b| = N_b$, given the vectors $\bm{a}_T  \in \mathbb{R}^{N_a}$ and $\bm{b}_T  \in \mathbb{R}^{N_b}$, and given a number of switching angles, we search the switching angles $\bm{\phi} \in \mathbb{R}^M$ such that
+\begin{problem}[Minimización para SHE de dos niveles]\label{SHEp_clas}
+    Dado dos conjuntos de números impares $\mathcal{E}_a$ y $\mathcal{E}_b$ con cardinalidades $|\mathcal{E}_a| = N_a$ y  $|\mathcal{E}_b| = N_b$,  dado los vectores $\bm{a}_T  \in \mathbb{R}^{N_a}$ y $\bm{b}_T  \in \mathbb{R}^{N_b}$ respectivamente, y dado el número de conmutaciones $M$, buscamos las localizaciones de los ángulos de conmutación $\bm{\phi} \in \mathbb{R}^M$ mediante la siguiente minimización:
     \begin{gather}
         \min_{\bm{\phi} \in \mathbb{R}^M} \Big[
         \sum_{i \in \mathcal{E}_a} (a_i(\bm{\phi}) - a^i_T)^2 + 
         \sum_{j \in \mathcal{E}_b} (b_j(\bm{\phi}) - b^j_T)^2  
         \Big] \\
-        \text{subject to:} \begin{cases}
-            0 < \phi_1  \\
-            \phi_k < \phi_{k+1} &  \forall k \in \{1,2,\dots,M \}\\
-            \phi_{M} < \pi
-        \end{cases} \label{constraints}
+        \text{sujeto a:} \\ 
+            0 < \phi_1  < \phi_2 < \dots  < \phi_{M-1}  <   \phi_{M} < \pi
+        \label{constraints}
     \end{gather} 
-    Donde las restricciones (\ref{constraints})  conservan el orden de los ángulos. 
+    Donde las restricciones (\ref{constraints})  conservan el orden de los ángulos, de manera que $\phi_k$ hace referencia al ángulo de conmutación $k$-ésimo. 
     
 \end{problem}
 
+A continuación numeraremos las ventajas y desventajas de esta formulación:
+
 
 \begin{enumerate}
-    \item This formulation don't give a clearly procedure to choose a number of angles $M$.
-    \item No se tiene una expresión explícita del problema que pueda ser utilizado a tiempo real para cualquier valor de los targets $\bm{a}_T$ y $\bm{b}_T$.
-    \item Existen discontinuidades de la soluciones con respecto a una variación continuada de los vectores de $\bm{a}_T$ y $\bm{b}_T$.
+    \item \textbf{Ventajas} 
+    \begin{enumerate}
+        \item Dado que conocemos que la forma de la función $f(\tau)$ solo dos valores podemos reducir la representación de la variable de optimización a unos pocos ángulos de conmutación. En caso contrario, $f(\tau)$ debería ser representado por su valor dentro del intervalo $[0,\pi]$.
+        \item Es un problema NLP (Nonlinear Programming) cuya solución es conocida para unos vectores $\bm{a}_T$ y $\bm{b}_T$ fijos.
+    \end{enumerate}
+    \item \textbf{Desventajas}
+    \begin{enumerate}
+        \item El número de ángulos de conmutación $M$ no es conocido para vectores objetivos $\bm{a}_T$ y $\bm{b}_T$.
+        \item No se tiene una expresión explícita del problema que pueda ser utilizado a tiempo real para cualquier valor de los targets $\bm{a}_T$ y $\bm{b}_T$.
+        \item Existen discontinuidades de la soluciones con respecto a una variación continuada de los vectores de $\bm{a}_T$ y $\bm{b}_T$. Sin embargo esto puede ser intrínseco del problema y no provocado por la formulación.
+    \end{enumerate} 
 \end{enumerate}
 
 
+\section{Propuesta y motivación}
 
-\section{Our contributions}
-We propose consider a search of a function $f(\tau)$ directly. In this way, instead of looking for the switching angles $\bm{\phi} \in \mathbb{R}^M$, we look for a function $f(\tau) \in \{ g(\tau)  \in L^\infty([0,\pi/2])\ /\ |g(\tau)| < 1\} $. Thanks to fundamental calculus theorem, we can say:
+Inspirados en la naturaleza continua de la variable de optimización $f(\tau)$, proponemos en este documento la formulación desde el control óptimo. Es decir en lugar buscar los ángulos de conmutación $\bm{\phi} \in \mathbb{R}^M$, buscaremos la función $f(\tau) \in \{ g(\tau)  \in L^\infty([0,\pi])\ /\ |g(\tau)| < 1\} $ que tenga los coeficientes de Fourier deseados. Si utilizamos el  teorema fundamental del cálculo diferencial podemos re-escribir la expresión de los coeficientes de Fourier (\ref{an}) y (\ref{bn}) como la evolución de sistemas dinámicos. Es decir:
 
 \begin{gather}
     \alpha_i(\tau) = \frac{2}{\pi}\int_0^\tau f(\tau) \sin(i\tau)d\tau 
@@ -84,11 +90,12 @@ We propose consider a search of a function $f(\tau)$ directly. In this way, inst
     \end{cases}
 \end{gather}
 
+La evolución de los sistemas dinámicos $\alpha_i(\tau)$ y $\beta_j(\tau)$ desde el tiempo $\tau=0$ hasta $\tau=\pi$ nos da lugar a los coeficientes $a_i$ y $b_j$. 
+De esta manera, el problema general de SHE (\ref{SHEp}) puede resolverse como un problema de control de un sistema dinámico donde $\alpha_i(\tau) \ | \ \forall i \in \mathcal{E}_a  $ y $ \beta_j(\tau) \ \forall j \in \mathcal{E}_b$ son los estados del sistema y $f(\tau)$ la variable de control, y cuyo objetivo será llevar los estados desde el origen de coordenadas hasta los vectores objetivos $\bm{a}_T$ y $\bm{b}_T$ en tiempo $\tau = \pi$
+\newline
 
-% Cuando resolvemos la ecuación diferencial ordinaria (\ref{ode}) hasta tiempo $T = \pi/2$ obtenemos el valor del coeficiente de Fourier $b_n$.
-
-% Este se puede ver como una ecuación diferencial ordinaria controlada donde los estados del sistema son $\beta_n$ y el control es $f(\tau) \ | \ \tau \in [0,\pi/2]$.
-%
-So, this ODE can see as control system, where $\alpha_i(\tau) \ | \ \forall i \in \mathcal{E}_a  $ and $ \beta_j(\tau) \ \forall j \in \mathcal{E}_b$ is the states and $f(\tau)$ is the control variable.
-%Entonces se puede plantear el problema de control cuyo objetivo es llevar el sistema $\beta_n(\tau)$ desde el estado nulo hasta $b_T^n$ para cada $n \in \{1,3,5,\dots,N/2 \}$ en un tiempo final $\tau_f = \pi/2$
-In this way, the problem (\ref{SHEp}) can be solve via optimal control problem, where the objective search a function $f(\tau)$ which drive the system from coordinates origin to the target vectors $\{ \bm{a}_T,\bm{b}_T\}$. 
+Este documento esta estructurado de la siguiente manera:
+\begin{enumerate}
+    \item Capítulo 1. \emph{Open-loop Optimal Control}
+    \item Capítulo 2. \emph{Feedback Optimal Control}
+\end{enumerate}

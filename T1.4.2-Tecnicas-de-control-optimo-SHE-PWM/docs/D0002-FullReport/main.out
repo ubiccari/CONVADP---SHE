@@ -1,10 +1,10 @@
 \BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Our contributions}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Propuesta y motivaci\363n}{chapter.1}% 2
 \BOOKMARK [0][-]{chapter.2}{Open Loop Optimal Control}{}% 3
-\BOOKMARK [1][-]{section.2.1}{Optimal control formulation}{chapter.2}% 4
-\BOOKMARK [2][-]{subsection.2.1.1}{OC SHE in two levels for symmetry of quarter-wave}{section.2.1}% 5
-\BOOKMARK [1][-]{section.2.2}{Numerical experiments}{chapter.2}% 6
-\BOOKMARK [2][-]{subsection.2.2.1}{OC for SHE with symmetry of quarter-cycle}{section.2.2}% 7
+\BOOKMARK [1][-]{section.2.1}{Formulaci\363n de control \363ptimo para el problema SHE}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.1.1}{OC SHE de dos niveles con simetr\355a de cuarto de onda}{section.2.1}% 5
+\BOOKMARK [1][-]{section.2.2}{Experimentos num\351ricos}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.1}{OCP for SHE with symmetry of quarter-cycle}{section.2.2}% 7
 \BOOKMARK [2][-]{subsection.2.2.2}{OC for SHE with symmetry of half-cycle}{section.2.2}% 8
 \BOOKMARK [0][-]{chapter.3}{Feedback Optimal Control}{}% 9
 \BOOKMARK [1][-]{section.3.1}{SHE with quarter-wave symmetry as dynamic programming problem}{chapter.3}% 10
