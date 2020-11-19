@@ -4,8 +4,13 @@
 \BOOKMARK [1][-]{section.2.1}{Formulaci\363n de control \363ptimo para el problema SHE}{chapter.2}% 4
 \BOOKMARK [2][-]{subsection.2.1.1}{OC SHE de dos niveles con simetr\355a de cuarto de onda}{section.2.1}% 5
 \BOOKMARK [1][-]{section.2.2}{Experimentos num\351ricos}{chapter.2}% 6
-\BOOKMARK [2][-]{subsection.2.2.1}{OCP for SHE with symmetry of quarter-cycle}{section.2.2}% 7
-\BOOKMARK [2][-]{subsection.2.2.2}{OC for SHE with symmetry of half-cycle}{section.2.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.1}{OCP para SHE con simetr\355a de media onda }{section.2.2}% 7
+\BOOKMARK [2][-]{subsection.2.2.2}{OCP para SHE con simetr\355a de cuarto de onda }{section.2.2}% 8
 \BOOKMARK [0][-]{chapter.3}{Feedback Optimal Control}{}% 9
-\BOOKMARK [1][-]{section.3.1}{SHE with quarter-wave symmetry as dynamic programming problem}{chapter.3}% 10
-\BOOKMARK [2][-]{subsection.3.1.1}{Dynamic programming}{section.3.1}% 11
+\BOOKMARK [1][-]{section.3.1}{Caracterizaci\363n del conjunto de controlabilidad}{chapter.3}% 10
+\BOOKMARK [2][-]{subsection.3.1.1}{Condiciones de controlabilidad}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.2}{Aproximaci\363n del conjunto controlable}{section.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.1.3}{Obtenci\363n de estrategias f\(\)}{section.3.1}% 13
+\BOOKMARK [1][-]{section.3.2}{SHE con simetr\355a de cuarto de onda como un problema de programaci\363n din\341mica}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.2.1}{Funci\363n Valor y Feedback optimal control}{section.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.2.2}{Ecuaci\363n de Hamilton-Jacobi-Bellman}{section.3.2}% 16

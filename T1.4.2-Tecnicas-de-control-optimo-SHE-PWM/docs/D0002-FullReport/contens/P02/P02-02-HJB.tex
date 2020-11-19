@@ -1,0 +1,99 @@
+
+\section{SHE con simetría de cuarto de onda como un problema de programación dinámica}
+
+Con el fin de encontrar la solución al problema (\ref{SHEp}) para distintos vectores objetivo $\bm{b}_T$ consideraremos un problema de control óptimo en el cual empezando desde en el vector objetivo $\bm{b}_T$ queremos llevar el sistema al origen de coordenadas. Entonces podemos plantear el siguiente problema de control óptimo:
+
+\begin{problem}\label{OCP_sinL}
+    Dado un conjunto de número impares $\mathcal{E}_b$ con cardinalidad $|\mathcal{E}_b| = N_b$ y dado un vector objetivo $\bm{b}_T  \in \mathbb{R}^{N_b}$, buscamos la función $f(\tau ) \ | \ \tau \in (0,\pi/2)$ tal que  $f(\tau)$ sea solución de:
+    \begin{gather}
+        \min_{f \in \{-1,1\} } \frac{1}{2}|| \bm{\beta}(T)||^2\\
+        \notag \text{suject to: } \\
+        \notag \forall j \in \mathcal{E}_b
+        \begin{cases}
+            \dot{\beta}_j(\tau) =  - (4/\pi) \sin(j\tau) f(\tau) & \tau \in [0,T]\label{dyn}\\
+            \beta_j(0) = b_T^j
+        \end{cases} 
+    \end{gather}
+    Donde $T=\pi/2$.
+\end{problem}
+
+En este caso, no consideraremos ningún término de penalización de manera que la solución del problema sea compatible con todas las posibles soluciones.
+
+
+
+
+
+
+
+\subsection{Función Valor y Feedback optimal control}
+
+\begin{defi}[Función Valor] 
+    La función valor $V:\mathbb{R}^{N_b} \times [0,\pi/2] \rightarrow \mathbb{R}$ se define como el valor que podemos obtener al resolver el problema (\ref{OCP_sinL}) empezando en desde la condición inicial $\bm{\beta}$ y cuando queda tiempo igual a $\pi/2-t$. Es decir:   
+    \begin{gather}
+        V(\textcolor{blue}{\bm{b}},\textcolor{red}{t}) = \min_{f \in \{-1,1\}} \frac{1}{2} ||\bm{\beta}(T)||^2 \\
+        \notag \text{suject to: } \\
+        \notag \forall j \in \mathcal{E}_b
+        \begin{cases}
+            \dot{\beta}_j(\tau) =  - (4/\pi) \sin(j\tau) f(\tau) & \tau \in [\textcolor{red}{t},T]\label{dyn}\\
+            \beta_j(\textcolor{red}{t}) = \textcolor{blue}{b}^j
+        \end{cases}      
+     \end{gather} 
+\end{defi}
+
+
+\subsection{Ecuación de Hamilton-Jacobi-Bellman}
+
+La función valor para un problema de control óptimo cumple la ecuación de Hamilton-Jacobi-Bellman (HJB), esta ecuación no es más que la versión en tiempo continua del principio de programación dinámica. La ecaución de HJB para el problema de control (\ref{OCP_sinL}) se puede escribir como:
+
+\begin{gather}\label{Hmin}
+    \begin{cases}
+        \displaystyle \dot{V}(\bm{b},t) + \min_{f \in \{ -1,1\}} H(t,f,\nabla V(\bm{b},t)) = 0 & en \ \mathbb{R}^{N_b} \times [0,\pi/2)\\ \\ 
+        V(\bm{b},T) = \frac{1}{2} ||\bm{b}||^2 & en \ \mathbb{R}^{N_b}
+    \end{cases}
+\end{gather}
+
+Donde $H$ es el Hamiltoniano del problema (\ref{OCP_sinL}), es decir:
+\begin{gather}
+    H(t,f,\bm{p}^b) = -\frac{4f}{\pi}\sum_{j \in \mathcal{E}_b} \sin(jt) p^b_j 
+\end{gather}
+
+Dado que el Hamiltoniano $H(t,f,\bm{p})$ es lineal con respecto al control $f$ podemos asegurar que el mínimo del Hamiltoniano se encuentra en los extremos $\{-1,1\}$. Entonces la expresión (\ref{Hmin}) se puede considerar como el mínimo de dos posibles valores. Es decir podemos re-escribir (\ref{Hmin}) como el valor mínimo de dos posibles valores:
+
+\begin{gather}\label{Hmintwo}
+    \min_f H(t,f,\bm{p}^b) \Rightarrow \min (H_{-}(t,\bm{p}^b),H_{+}(t,\bm{p}^b))
+\end{gather}
+
+Donde denotamos:
+\begin{gather}
+    H_{+}(t,\bm{p}^b) = H(t,f=+1,\bm{p}^b) \\
+    H_{-}(t,\bm{p}^b) = H(t,f=-1,\bm{p}^b)
+\end{gather}
+
+Por otra parte, es conocido que el mínimo de dos numeros puede expresarse con ayuda del valor absoluto, es decir el mínimo de dos números $x$ e $y$ se puede expresar como:
+
+\begin{gather}
+    \min (x,y) = \frac{1}{2} (x+y - |x-y|)
+\end{gather}
+
+Aplicando esto a la expresión (\ref{Hmintwo}) obtenemos:
+\begin{gather}
+    \min_f H(t,f,\bm{p}^b) = \frac{1}{2}(
+        H_{-}(t,\bm{p}^b) + H_{+}(t,\bm{p}^b) -
+         |H_{-}(t,\bm{p}^b) - H_{+}(t,\bm{p}^b)|)
+\end{gather}
+
+Dado que $H_{+}(t,\bm{p}^b) = -H_{-}(t,\bm{p}^b)$ obtenemos:
+\begin{gather}
+    \min_f H(t,f,\bm{p}^b) = -\frac{1}{2}(
+         |H_{-}(t,\bm{p}^b) - H_{+}(t,\bm{p}^b)|) \\
+    \min_f H(t,f,\bm{p}^b) =   \frac{4}{\pi} \Bigg| \sum_{j \in \mathcal{E}_b} \sin(jt) p_ j^b \Bigg|
+\end{gather}
+
+De esta manera podemos escribir la ecuación de Hamilton-Jacobi-Bellman (\ref{Hmin}) como:
+\begin{gather}
+    \begin{cases}
+        \displaystyle \dot{V}(\bm{b},\tau) = \frac{4}{\pi} \Big| \sum_{j \in \mathcal{E}_b} \sin(j\tau) \frac{\partial V(\bm{b},\tau)}{\partial b_j} \Big| & en \ \mathbb{R}^{N_b} \times [0,\pi/2]  \\ \\
+        V(\bm{b},T) = \frac{1}{2} ||\bm{b}||^2 & en \ \mathbb{R}^{N_b}
+    \end{cases}
+\end{gather}
+

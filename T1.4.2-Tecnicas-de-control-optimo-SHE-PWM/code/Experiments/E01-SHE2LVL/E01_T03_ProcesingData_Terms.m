@@ -33,24 +33,24 @@ for j=[1 2 3]
         sol(j).fvalues(i,:) = angles2fspan(alphas,tspan);
         [~,sol(j).bn(i,:)] = f2anbn(sol(j).fvalues(i,:),tspan,Na,harmonics);
     end
-    sol(j).title = "Solution S_"+j;
+    sol(j).title = "S_"+j;
 end
 % solucion que nos da el control optimo
 
 sol(6).fvalues = fopt_minus;
-sol(6).title  = "Solution OC -";
+sol(6).title  = "OC -";
 for i = 1:length(IdxMod)
     [~,sol(6).bn(i,:)] = f2anbn(fopts(i,:),tspan,Na,harmonics);
 end
 
 sol(4).fvalues = fopt_plus;
-sol(4).title  = "Solution OC +";
+sol(4).title  = "OC +";
 for i = 1:length(IdxMod)
     [~,sol(4).bn(i,:)] = f2anbn(fopts(i,:),tspan,Na,harmonics);
 end
 
 sol(5).fvalues = fopt_sq;
-sol(5).title  = "Solution OC^2";
+sol(5).title  = "OC^2";
 for i = 1:length(IdxMod)
     [~,sol(5).bn(i,:)] = f2anbn(fopts(i,:),tspan,Na,harmonics);
 end
@@ -101,48 +101,18 @@ print('../docs/D0002-FullReport/img/EX01_surf.eps','-depsc')
 
 %%
 
-figure('unit','norm','pos',[0 0 0.75 0.5])
+figure('unit','norm','pos',[0 0 0.4 0.4])
 
 for j=1:6
-    
-
-    subplot(2,6,j)
-    
     sg = sign(mean(sol(j).bn(:,1)));
-
-    switch sg
-        case 1
-            plot(  IdxMod,   sol(j).bn - bvalues_exact );
-        case -1
-            plot(  IdxMod,  -sol(j).bn - bvalues_exact );
-    end
-
-    xlabel('m_a')
-    ylabel('\Delta')
-    if j==1
-    legend([repmat('\Delta b_{',Nb,1), num2str(harmonics,'%.2d'),repmat('}',Nb,1)])
-    end
-    %ylim([-0.1 0.1])
-    %
-        title(sol(j).title)
-
-    subplot(2,6,j+6)
-    
-    
-    switch sg
-        case 1
-            plot(  IdxMod,  sum(( sol(j).bn - bvalues_exact).^2,2));
-        case -1
-            plot(  IdxMod,  sum((-sol(j).bn - bvalues_exact).^2,2));
-    end
-
-    xlabel('m_a')
-    ylabel('\Delta')
-    
-    if j==1
-    legend('\Sigma_i \Delta b_{i}^2')
-    end
+    error(:,j) = sum(( sg*sol(j).bn - bvalues_exact).^2,2);
 end
 %
+plot(  IdxMod, error ,'LineWidth',1.25);
+    xlabel('m_a')
+    xlim([IdxMod(1) IdxMod(end)])
+    title('$\Sigma_j ||\beta_{j}(T)- b_j^T||^2$','Interpreter','latex','FontSize',13)
+    legend(sol.title,'Location','bestoutside')
+
 print('../docs/D0002-FullReport/img/EX01.eps','-depsc')
 

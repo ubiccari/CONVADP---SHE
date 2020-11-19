@@ -3,7 +3,7 @@
 %
 En este documento se propone una solución del problema Selective Harmonic Elimination (SHE) desde el punto de vista de la teoría del control. 
 %
-El problema SHE consiste en la búsqueda de una función $\{ f(\tau ) \ | \ \tau \in [0,2\pi] \}$ dados unos pocos coeficientes de Fourier. Además esta función $f(\tau)$ solo podrá tomar valores en una discretización del intervalo $[-1,1]$. Nos centraremos en concreto en las funciónes $f(\tau)$ con simetría de media onda, es decir funciones tal que $f(\tau) = -f(\tau + \pi)$, por lo que la descripción de la función $f(\tau)$ queda determinada con sus valores en el intervalo $\tau \in [0,\pi]$. De esta forma, nos referiremos a una función $\{ f(\tau)  | \tau \in [0,\pi] \}$ cuyo desarrollo en serie de Fourier se puede escribir como:
+El problema SHE consiste en la búsqueda de una función $\{ f(\tau ) \ | \ \tau \in [0,2\pi] \}$ dados unos pocos coeficientes de Fourier. Además esta función $f(\tau)$ solo podrá tomar valores en una discretización del intervalo $[-1,1]$. Nos centraremos en concreto en las funciones $f(\tau)$ con simetría de media onda, es decir funciones tal que $f(\tau) = -f(\tau + \pi)$, por lo que la descripción de la función $f(\tau)$ queda determinada con sus valores en el intervalo $\tau \in [0,\pi]$. De esta forma, nos referiremos a una función $\{ f(\tau)  | \tau \in [0,\pi] \}$ cuyo desarrollo en serie de Fourier se puede escribir como:
 
 \begin{gather}
     f(\tau ) = \sum_{i \in odd} a_i \cos(i\tau)+ \sum_{j \in odd}  b_j \sin(j \tau) 
@@ -42,8 +42,8 @@ De esta manera, dada la expresión anterior podemos formular el problema (\ref{S
         \sum_{i \in \mathcal{E}_a} (a_i(\bm{\phi}) - a^i_T)^2 + 
         \sum_{j \in \mathcal{E}_b} (b_j(\bm{\phi}) - b^j_T)^2  
         \Big] \\
-        \text{sujeto a:} \\ 
-            0 < \phi_1  < \phi_2 < \dots  < \phi_{M-1}  <   \phi_{M} < \pi
+        \notag \text{sujeto a:} \\ 
+            0 < \phi_1  < \phi_2 < \dots  < \phi_k < \dots < \phi_{M-1}  <   \phi_{M} < \pi
         \label{constraints}
     \end{gather} 
     Donde las restricciones (\ref{constraints})  conservan el orden de los ángulos, de manera que $\phi_k$ hace referencia al ángulo de conmutación $k$-ésimo. 
@@ -57,13 +57,13 @@ A continuación numeraremos las ventajas y desventajas de esta formulación:
     \item \textbf{Ventajas} 
     \begin{enumerate}
         \item Dado que conocemos que la forma de la función $f(\tau)$ solo dos valores podemos reducir la representación de la variable de optimización a unos pocos ángulos de conmutación. En caso contrario, $f(\tau)$ debería ser representado por su valor dentro del intervalo $[0,\pi]$.
-        \item Es un problema NLP (Nonlinear Programming) cuya solución es conocida para unos vectores $\bm{a}_T$ y $\bm{b}_T$ fijos.
+        \item Es un problema NLP (Nonlinear Programming) cuya solución numérica es conocida para unos vectores $\bm{a}_T$ y $\bm{b}_T$ fijos.
     \end{enumerate}
     \item \textbf{Desventajas}
     \begin{enumerate}
         \item El número de ángulos de conmutación $M$ no es conocido para vectores objetivos $\bm{a}_T$ y $\bm{b}_T$.
         \item No se tiene una expresión explícita del problema que pueda ser utilizado a tiempo real para cualquier valor de los targets $\bm{a}_T$ y $\bm{b}_T$.
-        \item Existen discontinuidades de la soluciones con respecto a una variación continuada de los vectores de $\bm{a}_T$ y $\bm{b}_T$. Sin embargo esto puede ser intrínseco del problema y no provocado por la formulación.
+        \item Existen discontinuidades de la soluciones con respecto a una variación continua de los vectores de $\bm{a}_T$ y $\bm{b}_T$. Sin embargo esto puede ser intrínseco del problema y no provocado por la formulación.
     \end{enumerate} 
 \end{enumerate}
 
@@ -94,7 +94,7 @@ La evolución de los sistemas dinámicos $\alpha_i(\tau)$ y $\beta_j(\tau)$ desd
 De esta manera, el problema general de SHE (\ref{SHEp}) puede resolverse como un problema de control de un sistema dinámico donde $\alpha_i(\tau) \ | \ \forall i \in \mathcal{E}_a  $ y $ \beta_j(\tau) \ \forall j \in \mathcal{E}_b$ son los estados del sistema y $f(\tau)$ la variable de control, y cuyo objetivo será llevar los estados desde el origen de coordenadas hasta los vectores objetivos $\bm{a}_T$ y $\bm{b}_T$ en tiempo $\tau = \pi$
 \newline
 
-Este documento esta estructurado de la siguiente manera:
+Este documento esta estructurado de la siguiente manera: 
 \begin{enumerate}
     \item Capítulo 1. \emph{Open-loop Optimal Control}
     \item Capítulo 2. \emph{Feedback Optimal Control}

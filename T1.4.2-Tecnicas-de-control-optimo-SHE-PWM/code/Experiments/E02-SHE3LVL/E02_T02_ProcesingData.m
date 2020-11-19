@@ -82,37 +82,22 @@ end
 print('../docs/D0002-FullReport/img/EX01_surf_3LVL.eps','-depsc')
 
 %%
-
-figure('unit','norm','pos',[0 0 0.25 0.4])
+clear error
+figure('unit','norm','pos',[0 0 0.3 0.3])
 
 for j=1:3
     
+    error(:,j) = sum(( sol(j).bn - bvalues_exact).^2,2)
 
-    subplot(2,2,j)
-
-    plot(  IdxMod,   sol(j).bn - bvalues_exact );
-
-    xlabel('MI')
-    ylabel('\Delta')
-    if j==1
-    legend([repmat('\Delta b_{',Nb,1), num2str(harmonics,'%.2d'),repmat('}',Nb,1)])
-    end
-    %ylim([-0.1 0.1])
-    %
-    title(sol(j).title)
-
-    subplot(2,2,j+2)
-    
-
-    plot(  IdxMod,  sum(( sol(j).bn - bvalues_exact).^2,2));
-
-    xlabel('MI')
-    ylabel('\Delta')
-    
-    if j==1
-    legend('\Sigma_i \Delta b_{i}^2')
-    end
 end
+
+plot(  IdxMod, error ,'LineWidth',1.25);
+
+    xlabel('m_a')
+    
+    title('$\Sigma_j ||\beta_{j}(T)- b_j^T||^2$','Interpreter','latex')
+    legend(sol.title)
+    
 %
 print('../docs/D0002-FullReport/img/EX01_3LVL.eps','-depsc')
 

@@ -6,8 +6,8 @@ function   E12plot(harmonics,ValueF,Nt,tspan,W,b)
 
 N1 = 100;
 N2 = 100;
-bT1_span = linspace(-1.5,1.5,N1);
-bT2_span = linspace(-1.5,1.5,N2);
+bT1_span = linspace(-2,2,N1);
+bT2_span = linspace(-2,2,N2);
 %
 [bT1_ms,bT2_ms] = meshgrid(bT1_span,bT2_span);
 %
@@ -22,35 +22,39 @@ clf
 hold on
 for ii = 1:nn
     jplot(ii) = plot( [W(ii,2).*b(ii,1) W(ii,2).*b(ii,1)+W(ii,1)  W(ii,2).*b(ii,1)-W(ii,1)], ...
-                      [W(ii,1).*b(ii,1) W(ii,1).*b(ii,1)-W(ii,2)  W(ii,1).*b(ii,1)+W(ii,2)] ,'g-','LineWidth',2);
+                      [W(ii,1).*b(ii,1) W(ii,1).*b(ii,1)-W(ii,2)  W(ii,1).*b(ii,1)+W(ii,2)] ,'y-','LineWidth',1.25);
 end
 
 
 for it = 1:Nt
-for i = 1:N1
-    for j = 1:N2
-            bnn = [bT1_span(i) bT1_span(j)];
-            V(i,j,it) = ValueF(it,bnn);
+    for i = 1:N1
+        for j = 1:N2
+                bnn = [bT1_span(i) bT1_span(j)];
+                V(i,j,it) = ValueF(it,bnn);
+        end
     end
 end
-end
 %%
+%mymap = jet(10);
 
 isurf = surf(bT1_ms,bT2_ms,V(:,:,1));
+colormap jet
 zlim([-3 3])
 caxis([0 1e-3])
 
 view(0,-90)
 xlabel("\beta_{"+harmonics(1)+"}","FontSize",18)
 ylabel("\beta_{"+harmonics(2)+"}","FontSize",18)
-colorbar
+%ic = colorbar;
+%set(ic,'YTick',[-1 1])
+%colormap(mymap)
 shading interp
 
 ititle = title('');
 daspect([1 1 1])
 hold on; 
 
-iplot = plot( W(:,2).*b(:,1)  , W(:,1).*b(:,1) ,'Color','r','Marker','*')
+iplot = plot( W(:,2).*b(:,1)  , W(:,1).*b(:,1) ,'Color','c','Marker','.','LineStyle','none','MarkerSize',14);
 
 
 for it = (Nt):-2:1
@@ -60,32 +64,13 @@ for it = (Nt):-2:1
     iplot.YData = W(:,1).*b(:,it);
     
 for ii = 1:nn
-    jplot(ii).XData = [W(ii,2).*b(ii,it) W(ii,2).*b(ii,it)+W(ii,1)  W(ii,2).*b(ii,it)-W(ii,1)];
-                      
-      jplot(ii).YData = [W(ii,1).*b(ii,it) W(ii,1).*b(ii,it)-W(ii,2)  W(ii,1).*b(ii,it)+W(ii,2)];
+    jplot(ii).XData = [W(ii,2).*b(ii,it) W(ii,2).*b(ii,it)+W(ii,1)  W(ii,2).*b(ii,it)-W(ii,1)];                      
+    jplot(ii).YData = [W(ii,1).*b(ii,it) W(ii,1).*b(ii,it)-W(ii,2)  W(ii,1).*b(ii,it)+W(ii,2)];
 
 end
     pause(0.1)
 end
-%%
-% clf
-% isurf = surf(bT1_ms,bT2_ms,V(:,:,1));
-% zlim([-1 1])
-% caxis([0 1e-3])
-% view(0,-90)
-% xlabel("\beta_{"+harmonics(1)+"}","FontSize",18)
-% ylabel("\beta_{"+harmonics(2)+"}","FontSize",18)
-% colorbar
-% shading interp
-% 
-% ititle = title('');
-% daspect([1 1 1])
-% for it = 1:Nt
-%     isurf.ZData = V(:,:,it);
-%     ititle.String = "V_t(\beta_{"+harmonics(1)+"},\beta_{"+harmonics(2)+"}) | t = "+num2str(tspan(it)/pi,'%.2f')+"\pi";
-%     pause(0.1)
-% end
-%%
+
 
 
  

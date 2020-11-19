@@ -5,8 +5,8 @@ harmonics = [1 3];
 dim = length(harmonics);
 
 %%% Number of neurons in the NN
-nphi = 50; %discretization for the meridian
-ntheta = 50; %discretization for the lattitude (discret. points without the poles)
+nphi = 25; %discretization for the meridian
+ntheta = 25; %discretization for the lattitude (discret. points without the poles)
 [W] = nsphere(dim,ntheta,nphi);
 
 [neurons,~] = size(W);

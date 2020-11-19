@@ -1,0 +1,92 @@
+\section{Introducción}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Selective Harmonic Elimination}
+
+    \begin{itemize}
+        \item     Se considerará la función $f(\tau) \ | \ \tau \in [0,\pi]$ que solo puede tomar los valores $\{-1,1\}$.
+        \item Consideraremos que esta función tiene simetría de media onda, es decir: $f(\tau) = -f(\tau + \pi)$.
+    \end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \frametitle{Selective Harmonic Elimination}
+    \begin{itemize}
+        \item De esta manera, los $f(\tau)$ se puede desarrollar en serie de Fourier como:
+    \begin{gather}
+        f(\tau ) = \sum_{i \in impar} a_i \cos(i\tau)+ \sum_{j \in impar}  b_j \sin(j \tau) 
+    \end{gather}
+    
+    Donde $a_i$ y $b_j$  son:
+    \begin{gather}
+        a_i = \frac{2}{\pi} \int_0^\pi f(\tau ) \cos(i \tau)d\tau \ | \ \forall i \ impar \label{an}\\
+        b_j = \frac{2}{\pi} \int_0^\pi f(\tau)  \sin(j \tau) d\tau \ | \ \forall j \ impar \label{bn}
+    \end{gather}
+    \end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    
+    \frametitle{Definición del Problema SHE}
+
+    \begin{problem}[SHE para dos niveles]
+        \begin{itemize}
+            \item Consideramos dos conjuntos de números impares $\mathcal{E}_a$ y $\mathcal{E}_b$ con cardinalidades $|\mathcal{E}_a| = N_a$ y  $|\mathcal{E}_b| = N_b$ respectivamente.
+            \item Consideramos los vectores objetivo $\bm{a}_T  \in \mathbb{R}^{N_a}$ y $\bm{b}_T  \in \mathbb{R}^{N_b}$.
+            \item  Buscamos una función  $f(\tau )  \in \{-1,1\} \ | \  \forall  \tau \in (0,\pi)$  cuyos coeficientes de Fourier satisfagan: 
+            \begin{gather}
+                \begin{cases}
+                    a_i = (\bm{a}_T)_i & \forall i \in \mathcal{E}_a \\
+                    b_j = (\bm{b}_T)_j & \forall \ j \in \mathcal{E}_b
+                \end{cases}
+            \end{gather}
+
+        \end{itemize}
+    \end{problem}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{Optimización de ángulos de conmutación}
+    Si denotamos ángulos de conmutación como 
+    \begin{gather}
+        \bm{\phi} = [\phi_1,\phi_2,\dots,\phi_M] \in \mathbb{R}^M 
+    \end{gather}
+    podemos escribir los coeficientes de Fourier (\ref{an}) y (\ref{bn}) en función de $\bm{\phi}$ como: 
+    \begin{align}
+        a_i(\bm{\phi})  = & +\frac{4}{i\pi} \sum_{k=1}^{M} (-1)^{k+1}\sin(i\phi)  & \ | \ \forall i \in \mathcal{E}_a \\
+        b_j(\bm{\phi})  = & - \frac{2}{j\pi  } \bigg[ 1  + (-1)^{M}+ 2\sum_{k=1}^M  (-1)^{k+1}\cos(j\phi_k) \bigg] & \ | \ \forall j \in \mathcal{E}_b
+    \end{align}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \frametitle{}
+    \begin{problem}
+        \begin{itemize}
+            \item Consideramos dos conjuntos de números impares $\mathcal{E}_a$ y $\mathcal{E}_b$ con cardinalidades $|\mathcal{E}_a| = N_a$ y  $|\mathcal{E}_b| = N_b$.
+            \item Consideramos los vectores $\bm{a}_T  \in \mathbb{R}^{N_a}$ y $\bm{b}_T  \in \mathbb{R}^{N_b}$
+            \item Consideramos un número de conmutaciones $M$
+            \item Buscamos los ángulos de conmutación $\bm{\phi} \in \mathbb{R}^M$
+            \item Minimizamos
+        \begin{gather}
+            \min_{\bm{\phi} \in \mathbb{R}^M} \Big[
+            \sum_{i \in \mathcal{E}_a} (a_i(\bm{\phi}) - a^i_T)^2 + 
+            \sum_{j \in \mathcal{E}_b} (b_j(\bm{\phi}) - b^j_T)^2  
+            \Big] \\
+            \notag \text{sujeto a:} \\ 
+            \notag    0 < \phi_1  < \phi_2 < \dots  < \phi_k < \dots < \phi_{M-1}  <   \phi_{M} < \pi
+            \label{constraints}
+        \end{gather} 
+    \end{itemize}
+\end{problem}
+
+\end{frame}
+
+

@@ -1,92 +1,83 @@
-\section{SHE with quarter-wave symmetry as dynamic programming problem}
 
-Con el fin de encontrar la solución al problema para distintos targets $\bm{a}_T$ y $\bm{b}_T$ consideraremos el cambio de variable $\bm{\beta}'(\tau) = \bm{\beta}(\tau) - \bm{b}_T$. De manera que, podemos plantear un problema de control donde el estado inicial el target $\bm{b}_T$ y cuyo objetivo es llevar el sistema al origen de coordenadas.
-\begin{problem}
-    Given  $\bm{b}_T  \in \mathbb{R}^{n_b}$, we define a cost functional in this way: 
-        \begin{gather}
-        J[f(\tau)] =  \frac{1}{2}|| \bm{\beta}(T)||^2  
-    \end{gather}
+\section{Caracterización del conjunto de controlabilidad}
 
-
-    So, the optimization problem can be written: 
-    \begin{gather}
-        \min_{f \in \{-1,1\} } J[f(\tau)]) \\
-        \notag \text{suject to: } \\
-        \notag \forall j \in \mathcal{E}_b
-        \begin{cases}
-            \dot{\beta_j(\tau)} =  - (4/\pi) \sin(j\tau) f(\tau) & \tau \in [0,\pi/2]\label{dyn}\\
-            \beta_j(0) = b_T^j
-        \end{cases} \\
-    \end{gather}
-    
-\end{problem}
-
-En este caso, no consideraremos ningún término de penalización de manera que la solución del problema sea compatible con todas las posibles soluciones.
-
-Tomamo un discretización $\{\tau_0,\tau_1,\dots,\tau_{N_t} \}$ del intervalo $[0,\pi/2]$. Entonces podemos discretizar el problema anterior:
-
-\begin{problem}
-    Given  $\bm{b}_T  \in \mathbb{R}^{n_b}$,  the optimization problem can be written: 
-    \begin{gather}
-        \min_{\bm{f} \in \mathbb{R}^{N_t} } \frac{1}{2}||\bm{\beta}^{N_t}||^2 \\
-        \text{suject to: }
-        \begin{cases}
-            \beta_n^{i+1} = \beta_n^{i} - \Delta \tau (4/\pi) \sin(n\tau_i) f_\tau & \tau \in [0,\pi/2]\label{dyn}\\
-            \beta_n^0 = b_T^n
-        \end{cases} \\
-        \notag \forall n \in \{1,3,5,\dots,N/2 \}
-    \end{gather}
-
-\end{problem}
-
-\subsection{Dynamic programming}
-
-Función valor 
+Dado el sistema de control:
 
 \begin{gather}
-    v_t(\bm{b}_T) =  \min_{\bm{f} \in \mathbb{R}^{N_t-t} } \frac{1}{2}||\bm{\beta}^{t}||^2 \\
-    \text{suject to: }
+    \forall j \in \mathcal{E}_b 
     \begin{cases}
-        \beta_n^{i+1} = \beta_n^{i} - \Delta \tau (4/\pi) \sin(n\tau_i) f_\tau & \tau \in [0,\pi/2]\label{dyn}\\
-        \beta_n^0 = b_T^n
+        \dot{\beta}_j(\tau) =  -(4/\pi) \sin(j\tau) f(\tau) & \tau \in [0,\pi/2]\label{dyn}\\
+        \beta_j(0) = b_T^j
     \end{cases} \\
-    \notag \forall n \in \{1,3,5,\dots,N/2 \}
+    |f (\tau )|\leq 1 \ | \ \tau \in [0,\pi/2]
 \end{gather}
 
+\subsection{Condiciones de controlabilidad}
 
-
-
-Entonces la función valor de estado cumple la ecuación de Bellman, que en este caso se puede escribir como:
-\begin{gather}\label{BellmanEquationOptimo}
-    v_t(\bm{\beta}^t) = \min_{f \in \{ -1,1 \}}  v_{t+1}(\bm{\beta}^{t+1})  \\
-    v^{N_t}(\bm{\beta}^{N_t}) =  \frac{1}{2}|| \bm{\beta}^{N_t}||^2
-\end{gather}
-
-La función $v_t(\bm{\beta}^t)$ representa el mejor coste que se puede alcanzar desde el estado $\bm{\beta}^t$ en $(N_t-t)$ pasos. Es por ello que en $t=Nt$ el mejor coste que se puede alcanzar desde el punto $\bm{\beta}^t$ es el valor del coste final $\frac{1}{2} || \bm{\beta}^{N_t}||^2$
-
-
-Luego el control óptimo se puede calcular mediante la siguiente expresión 
+Consideramos el sistema de control proyectado en la dirección $\bm{w} \in \mathbb{R}^{N_b}  / \  ||\bm{w}|| = 1$, cuyo estado llamaremos $\beta^w(\tau) = (\bm{w},\bm{\beta}(\tau))$
 
 \begin{gather}
-    f^*(\tau,\bm{\beta}_t) = \min_{f \in \{ -1,1\}} v_t(\bm{\beta}_t)
+    \begin{cases}
+        \displaystyle \dot{\beta}^w(\tau) = -\frac{4}{\pi} \sum_{j\in \mathcal{E}_b} w_j \sin(j\tau) f(\tau) & \tau \in [0,\pi/2]\\
+        \displaystyle \beta^w(0) = \sum_{j\in \mathcal{E}_b} w_j b_T^j   
+    \end{cases}
 \end{gather}
 
-% \begin{algorithm}[!ht]
-%     \caption{\emph{Value Iteration}}\label{ValueIteration}
-%     \begin{algorithmic}[1]
-%         \Procedure{Value-Iteration}{$\mathcal{V}^*,tol$}
-%         \State $k \gets 0$
-%         \State $\mathcal{V}_k\gets \mathcal{V}^*$
-%         \While{$error\leq tol$}
-%             \State $k \gets k + 1$
-%             \For{$\forall s \in \Ss$}
-%                 \State $\mathcal{V}_k(s)\gets \mathcal{T}_v\mathcal{V}_{k-1}(s)$
-%             \EndFor
-%             \State $error \gets || \mathcal{V}_k - \mathcal{V}_{k-1}||_\infty$
-%         \EndWhile
-%         \State $\displaystyle \pi_k^*(s) = \arg \max_{a'\in \As} \bigg[ r(s,a') + \gamma \sum_{s'}p(s'|s,a') v_*(s')
-%         \bigg]$
-%         \State \textbf{return}: [$\mathcal{V}_k(s)$,$\pi_k^*(s)$]
-%         \EndProcedure
-%     \end{algorithmic}
-% \end{algorithm}
+Para esta dinámica proyectada existirá un valor maximo  $\beta_{max}^w$ para la condición inicial para el cual exista un control $f(\tau)$ que pueda conducir el sistema al origen en tiempo $\tau = \pi/2$. 
+
+
+Para hallar el valor $\beta_{max}^w$ podemos pensar el cómo debe ser la estrategia de control para que el estado recorra la máxima distancia posible. La dinámica proyectada es lo más grande posible cuando la derivada toma siempre valores negativos. Dado que podemos elegir $f(\tau)$ en el intervalo $[-1,1]$ la elegiremos de tal manera que la derivada temporal sea siempre negativa y lo más grande posible. Entonces la ecuación diferencial del punto más lejano $\beta_{max}^p$ que podemos alcanzar en $\tau = \pi/2$ es:
+
+\begin{gather}
+    \begin{cases}
+        \displaystyle \dot{\beta}^{\bm{w}}_{max}(\tau) = -\frac{4}{\pi} 
+        \Big|\sum_{j\in \mathcal{E}_b}  w_j \sin(j\tau) \Big|
+         & \tau \in [0,\pi/2]\\
+        \displaystyle \beta^{\bm{w}}_{max}(\pi/2) = 0   
+    \end{cases}
+\end{gather}
+
+Con condición final el origen de coordenadas. También podemos escribirlo en  su versión integral:
+\begin{gather}
+    \beta^{\bm{w}}_{max}(\tau) = \frac{4}{\pi} \int_\tau^{\pi/2}
+    \Big| \sum_{j\in \mathcal{E}_b} w_j \sin(j\tau') \Big| d\tau'
+\end{gather}
+
+\subsubsection{Condición necesaria}
+
+
+Entonces dados una trayectoria $\bm{\beta}(\tau)  |  \tau \in [0,\pi/2]$ generada mediante una estrategia $f(\tau)$ y una dirección $\bm{w}$, si la proyección  $\beta^w(\tau) = (\bm{\beta}(\tau),\bm{w})$ es siempre tal que $ \beta^w(\tau) < b^{\bm{w}}_{max }(\tau) \ |  \forall \tau \in [0,\pi/2]$ entonces $\beta^w(\pi/2)\leq 0$. Es decir la proyección de $\bm{\beta}(\tau)$ puede alcanzar el origen de coordenadas en tiempo $\tau = \pi$ e incluso ir más alla del origen.
+
+\subsubsection{Condición suficiente}
+
+Dada una trayectoria $\bm{\beta}(\tau)|  \tau \in [0,\pi/2]$ generada mediante una estrategia $f(\tau)$  entonces $\bm{\beta}(\pi/2) = 0$ si $\forall \bm{w} \in \mathbb{R}^{N_b}  /  \ \|w\|=1$  se cumple que $(\bm{\beta}(\tau),\bm{w}) < \beta^{\bm{w}}_{max}(\tau)$. Es decir, si las proyecciones del sistema en todas las direcciones $\bm{w}$ son capaces de llegar a $\beta^{\bm{w}}(\pi/2)\leq 0$ es porque $\bm{\beta}(\pi/2) = 0$
+
+
+\subsection{Aproximación del conjunto controlable}
+
+Tomamos un subconjunto finito $\mathcal{W} =\{\bm{w}_k\}_{k=1}^K $ del conjunto $ \{\bm{w} \in \mathbb{R}^{N_b} / \| w\| = 1 \}$, donde $K$ es el número de elementos del conjunto $\mathcal{W}$. Buscamos una función que sea cero cuando  $(\bm{\beta}(\tau),\bm{w}) < \beta^{\bm{w}}_{max}(\tau) \ | \ \forall w \in \mathcal{W}$ para ello podemos utilizar la función theta de Heaviside $\Theta: \mathbb{R} \rightarrow \mathbb{R}$:
+
+\begin{gather}
+    \Theta(x) = \begin{cases}
+        1 & si \ x > 0 \\ 
+        0 & si \ x < 0
+    \end{cases}
+\end{gather}
+
+O su versión suave 
+
+\begin{gather}
+    \Theta_\epsilon(x) = \frac{1}{2} + \frac{1}{2} \tanh(\epsilon x) \ | \ \epsilon >> 1
+\end{gather}
+
+Entonces el conjunto controlable se puede escribir como:
+\begin{gather}
+    V(\tau,\bm{\beta}) = \sum_{\bm{w}_k \in \mathcal{W}} 
+    \Theta (\bm{\beta}(\tau) - \beta_{max}^{\bm{w}_k}(\tau))
+\end{gather}
+
+Siempre que el conjunto $\mathcal{W}$ este distribuido en todas las direcciones $V(\tau,\bm{\beta})$ será una buena aproximación del conjunto controlable.
+
+\subsection{Obtención de estrategias $f(\tau)$}
+
+Dado $V(\tau,\bm{\beta})$ podemos obtener distintos $f(\tau)$ simplemente tomando en cada instante el valor de $f(\tau)$ que nos mantenga en $V(\tau,\bm{\beta}) = 0$, ya que por construcción $V(\tau,\bm{\beta}) = 0$ es el conjunto en el que la trayectoria $\bm{\beta}(\pi/2)$ puede llegar al origen.

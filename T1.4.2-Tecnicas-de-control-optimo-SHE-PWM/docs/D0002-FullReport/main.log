@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.9)  14 NOV 2020 09:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.9)  19 NOV 2020 14:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -485,26 +485,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--54
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Underfull \hbox (badness 10000) in paragraph at lines 79--81
 
  []
 
 Package epstopdf Info: Source file: <img/bang-bang.eps>
-(epstopdf)                    date: 2020-11-12 11:20:23
-(epstopdf)                    size: 40077 bytes
+(epstopdf)                    date: 2020-11-19 14:25:06
+(epstopdf)                    size: 40400 bytes
 (epstopdf)             Output file: <img/bang-bang-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-11-12 11:20:24
-(epstopdf)                    size: 18880 bytes
+(epstopdf)                    date: 2020-11-19 10:22:58
+(epstopdf)                    size: 18888 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/bang-bang-eps-converted-to.pdf img/bang-bang.eps>
-(epstopdf)             \includegraphics on input line 83.
-Package epstopdf Info: Output file is already uptodate.
-<img/bang-bang-eps-converted-to.pdf, id=149, 493.845pt x 391.4625pt>
+(epstopdf)             \includegraphics on input line 84.
+runsystem(repstopdf --outfile=img/bang-bang-eps-converted-to.pdf img/bang-bang.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <img/bang-bang-eps-converted-to.pdf>
+(epstopdf)                    date: 2020-11-19 14:25:08
+(epstopdf)                    size: 18888 bytes.
+<img/bang-bang-eps-converted-to.pdf, id=175, 493.845pt x 391.4625pt>
 File: img/bang-bang-eps-converted-to.pdf Graphic file (type pdf)
 <use img/bang-bang-eps-converted-to.pdf>
-Package pdftex.def Info: img/bang-bang-eps-converted-to.pdf  used on input line 83.
+Package pdftex.def Info: img/bang-bang-eps-converted-to.pdf  used on input line 84.
 (pdftex.def)             Requested size: 246.92189pt x 195.73076pt.
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+Underfull \hbox (badness 10000) in paragraph at lines 117--119
 
  []
 
@@ -512,105 +516,119 @@ Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.136 \end{gather}
-                   </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/bang-bang-eps-converted-to.pdf>]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/P01/P01-03-NumericalResults.tex
+l.129     \end{gather}
+                       </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/bang-bang-eps-converted-to.pdf>]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/P01/P01-03-NumericalResults.tex [12]
 Package epstopdf Info: Source file: <img/EX01_surf.eps>
-(epstopdf)                    date: 2020-11-12 12:14:54
-(epstopdf)                    size: 66790 bytes
+(epstopdf)                    date: 2020-11-16 09:25:55
+(epstopdf)                    size: 63224 bytes
 (epstopdf)             Output file: <img/EX01_surf-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-11-12 12:14:56
-(epstopdf)                    size: 61392 bytes
+(epstopdf)                    date: 2020-11-16 09:25:57
+(epstopdf)                    size: 58121 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/EX01_surf-eps-converted-to.pdf img/EX01_surf.eps>
-(epstopdf)             \includegraphics on input line 32.
+(epstopdf)             \includegraphics on input line 66.
 Package epstopdf Info: Output file is already uptodate.
-<img/EX01_surf-eps-converted-to.pdf, id=189, 940.51375pt x 497.86pt>
+<img/EX01_surf-eps-converted-to.pdf, id=222, 940.51375pt x 497.86pt>
 File: img/EX01_surf-eps-converted-to.pdf Graphic file (type pdf)
 <use img/EX01_surf-eps-converted-to.pdf>
-Package pdftex.def Info: img/EX01_surf-eps-converted-to.pdf  used on input line 32.
+Package pdftex.def Info: img/EX01_surf-eps-converted-to.pdf  used on input line 66.
 (pdftex.def)             Requested size: 470.25572pt x 248.92938pt.
 
-Overfull \hbox (52.00204pt too wide) in paragraph at lines 32--33
+Overfull \hbox (52.00204pt too wide) in paragraph at lines 66--67
  [][] 
  []
 
 Package epstopdf Info: Source file: <img/EX01.eps>
-(epstopdf)                    date: 2020-11-12 12:14:56
-(epstopdf)                    size: 127057 bytes
+(epstopdf)                    date: 2020-11-16 09:26:09
+(epstopdf)                    size: 44640 bytes
 (epstopdf)             Output file: <img/EX01-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-11-12 12:14:58
-(epstopdf)                    size: 37904 bytes
+(epstopdf)                    date: 2020-11-16 09:26:11
+(epstopdf)                    size: 16549 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/EX01-eps-converted-to.pdf img/EX01.eps>
-(epstopdf)             \includegraphics on input line 41.
+(epstopdf)             \includegraphics on input line 75.
 Package epstopdf Info: Output file is already uptodate.
-<img/EX01-eps-converted-to.pdf, id=192, 867.24pt x 420.57124pt>
+<img/EX01-eps-converted-to.pdf, id=225, 484.81125pt x 347.2975pt>
 File: img/EX01-eps-converted-to.pdf Graphic file (type pdf)
 <use img/EX01-eps-converted-to.pdf>
-Package pdftex.def Info: img/EX01-eps-converted-to.pdf  used on input line 41.
-(pdftex.def)             Requested size: 433.61894pt x 210.28511pt.
-
-Overfull \hbox (15.36526pt too wide) in paragraph at lines 41--42
- [][] 
- []
-
-[12]
+Package pdftex.def Info: img/EX01-eps-converted-to.pdf  used on input line 75.
+(pdftex.def)             Requested size: 290.88899pt x 208.3801pt.
 Package epstopdf Info: Source file: <img/EX01_surf_3LVL.eps>
-(epstopdf)                    date: 2020-11-12 12:20:51
+(epstopdf)                    date: 2020-11-16 09:27:11
 (epstopdf)                    size: 54326 bytes
 (epstopdf)             Output file: <img/EX01_surf_3LVL-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-11-12 12:20:53
+(epstopdf)                    date: 2020-11-16 09:27:13
 (epstopdf)                    size: 44524 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/EX01_surf_3LVL-eps-converted-to.pdf img/EX01_surf_3LVL.eps>
-(epstopdf)             \includegraphics on input line 52.
+(epstopdf)             \includegraphics on input line 86.
 Package epstopdf Info: Output file is already uptodate.
-<img/EX01_surf_3LVL-eps-converted-to.pdf, id=206, 1012.78375pt x 362.35374pt>
+<img/EX01_surf_3LVL-eps-converted-to.pdf, id=228, 1012.78375pt x 362.35374pt>
 File: img/EX01_surf_3LVL-eps-converted-to.pdf Graphic file (type pdf)
 <use img/EX01_surf_3LVL-eps-converted-to.pdf>
-Package pdftex.def Info: img/EX01_surf_3LVL-eps-converted-to.pdf  used on input line 52.
+Package pdftex.def Info: img/EX01_surf_3LVL-eps-converted-to.pdf  used on input line 86.
 (pdftex.def)             Requested size: 455.74847pt x 163.05768pt.
 
-Overfull \hbox (37.4948pt too wide) in paragraph at lines 52--53
+Overfull \hbox (37.4948pt too wide) in paragraph at lines 86--87
  [][] 
  []
 
 Package epstopdf Info: Source file: <img/EX01_3LVL.eps>
-(epstopdf)                    date: 2020-11-12 12:18:29
-(epstopdf)                    size: 46480 bytes
+(epstopdf)                    date: 2020-11-16 09:27:12
+(epstopdf)                    size: 35883 bytes
 (epstopdf)             Output file: <img/EX01_3LVL-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-11-12 12:18:31
-(epstopdf)                    size: 17371 bytes
+(epstopdf)                    date: 2020-11-16 09:27:13
+(epstopdf)                    size: 14919 bytes
 (epstopdf)             Command: <repstopdf --outfile=img/EX01_3LVL-eps-converted-to.pdf img/EX01_3LVL.eps>
-(epstopdf)             \includegraphics on input line 58.
+(epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
-<img/EX01_3LVL-eps-converted-to.pdf, id=207, 313.17pt x 337.26pt>
+<img/EX01_3LVL-eps-converted-to.pdf, id=229, 355.3275pt x 265.99374pt>
 File: img/EX01_3LVL-eps-converted-to.pdf Graphic file (type pdf)
 <use img/EX01_3LVL-eps-converted-to.pdf>
-Package pdftex.def Info: img/EX01_3LVL-eps-converted-to.pdf  used on input line 58.
-(pdftex.def)             Requested size: 219.21748pt x 236.08038pt.
-) [13pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) has been already used, duplicate ignored
+Package pdftex.def Info: img/EX01_3LVL-eps-converted-to.pdf  used on input line 92.
+(pdftex.def)             Requested size: 248.72754pt x 186.19434pt.
+) [13] [14pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.21 \chapter
-             {Feedback Optimal Control} </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_surf-eps-converted-to.pdf>] [14pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}) has been already used, duplicate ignored
+             {Feedback Optimal Control}pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.21 \chapter
-             {Feedback Optimal Control}pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4}) has been already used, duplicate ignored
+             {Feedback Optimal Control} </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_surf-eps-converted-to.pdf> </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01-eps-converted-to.pdf>] [15pdfTeX warning (ext4): destination with the same identifier (name{figure.2.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.21 \chapter
-             {Feedback Optimal Control} </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01-eps-converted-to.pdf> </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf>] [15pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5}) has been already used, duplicate ignored
+             {Feedback Optimal Control}pdfTeX warning (ext4): destination with the same identifier (name{figure.2.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.21 \chapter
-             {Feedback Optimal Control} </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_3LVL-eps-converted-to.pdf>] [16
+             {Feedback Optimal Control} </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf> </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/img/EX01_3LVL-eps-converted-to.pdf>] [16
 
 ]
 Chapter 3.
-(/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/P02/P02-01-IntroDynamicPrograming.tex [17]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/Z01-Ap.tex) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/main.bbl [18]
+(/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/P02/P02-01-IntroDynamicPrograming.tex [17]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 81.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\tau' on input line 81.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 81.
+
+) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/P02/P02-02-HJB.tex [18]
+Package hyperref Info: bookmark level for unknown defi defaults to 0 on input line 30.
+
+Overfull \hbox (96.71082pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10 3.2.  SHE CON SIMETR[]IA DE CUARTO DE ONDA COMO UN PROBLEMA DE PROGRAMACI[]ON DIN[]AMICA \OT1/cmr/m/n/10 19
+ []
+
+[19]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/contens/Z01-Ap.tex) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/main.bbl [20]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
@@ -618,35 +636,35 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 \tf@thm=\write5
 \openout5 = `main.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
- [19
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 32.
+ [21
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
  (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 31.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 31.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 32.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 32.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C9F75D8D9BD69CFBD867C36D625E054B;885.
+(rerunfilecheck)             Checksum: 5C04965F43C7729CC7746F85B8120BE1;1397.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 31.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 32.
  ) 
 Here is how much of TeX's memory you used:
- 8652 strings out of 480608
- 138343 string characters out of 5903630
- 501536 words of memory out of 5000000
- 24235 multiletter control sequences out of 15000+600000
+ 8690 strings out of 480608
+ 139044 string characters out of 5903630
+ 501162 words of memory out of 5000000
+ 24249 multiletter control sequences out of 15000+600000
  547023 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,15n,40p,891b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on /Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/main.pdf (19 pages, 401792 bytes).
+ 41i,18n,40p,896b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on /Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/D0002-FullReport/main.pdf (21 pages, 394388 bytes).
 PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 303 compressed objects within 4 object streams
- 94 named destinations out of 1000 (max. 500000)
- 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 423 PDF objects out of 1000 (max. 8388607)
+ 359 compressed objects within 4 object streams
+ 115 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
