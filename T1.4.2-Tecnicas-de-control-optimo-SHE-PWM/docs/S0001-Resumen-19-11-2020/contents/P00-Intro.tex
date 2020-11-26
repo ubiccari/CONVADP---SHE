@@ -1,11 +1,10 @@
-\section{Introducción}
 
 
-
+\section{Selective Harmonic Elimination}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
     \frametitle{Selective Harmonic Elimination}
-
+    \framesubtitle{Elementos básicos}
     \begin{itemize}
         \item     Se considerará la función $f(\tau) \ | \ \tau \in [0,\pi]$ que solo puede tomar los valores $\{-1,1\}$.
         \item Consideraremos que esta función tiene simetría de media onda, es decir: $f(\tau) = -f(\tau + \pi)$.
@@ -15,6 +14,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
     \frametitle{Selective Harmonic Elimination}
+    \framesubtitle{Elementos básicos}
     \begin{itemize}
         \item De esta manera, los $f(\tau)$ se puede desarrollar en serie de Fourier como:
     \begin{gather}
@@ -73,8 +73,7 @@
             \item Consideramos dos conjuntos de números impares $\mathcal{E}_a$ y $\mathcal{E}_b$ con cardinalidades $|\mathcal{E}_a| = N_a$ y  $|\mathcal{E}_b| = N_b$.
             \item Consideramos los vectores $\bm{a}_T  \in \mathbb{R}^{N_a}$ y $\bm{b}_T  \in \mathbb{R}^{N_b}$
             \item Consideramos un número de conmutaciones $M$
-            \item Buscamos los ángulos de conmutación $\bm{\phi} \in \mathbb{R}^M$
-            \item Minimizamos
+            \item Buscamos los ángulos de conmutación $\bm{\phi} \in \mathbb{R}^M$ mediante el problema de minimización:
         \begin{gather}
             \min_{\bm{\phi} \in \mathbb{R}^M} \Big[
             \sum_{i \in \mathcal{E}_a} (a_i(\bm{\phi}) - a^i_T)^2 + 

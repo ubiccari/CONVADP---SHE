@@ -1,60 +1,38 @@
-clear all;close all
-import casadi.*
+clear 
+tspan = linspace(0,pi/2,100);
+
+harm = [1;3;7 ;9];
 
 
-xs = SX.sym('x',3,1);
-us = SX.sym('u',1,1);
-ts = SX.sym('t');
+bt = @(b0,t,f,j) b0 - (4/(pi.*harm(j))).*f*( 1 - cos(harm(j)*t)) ;
 
-%
-harmonic = [1 5 7 11 13];
+dim = length(harm)
 
-A = [-1   0.5  0.1;
-      0.5  -1.0  0.5;
-      0.1 0.5 -1.0];
-  
-dynfcn = Function('f',{ts,xs,us},{ A*xs + [0;0;1].*us });
-%
-%%
-tspan = linspace(0,30,100);
-idyn = ode(dynfcn,xs,us,tspan);
-idyn.InitialCondition = [1 1 1]' ;
-SetIntegrator(idyn,'RK4')
-Control0 = ZerosControl(idyn);
 
-FreeState = solve(idyn,Control0);
-FreeState = full(FreeState);
-%
-epsilon = 1e-3;
+bspan = linspace(-1.8,1.8,10);
+clf
 
-P = [1 0 0;
-     0 1 0];
- 
-xtp = 0.5*[1;1];
-xt = 0.5*[1;1;1];
-%PathCost  = Function('L'  ,{ts,xs,us},{ (P*xs-xtp)'*(P*xs-xtp)           });
-PathCost  = Function('L'  ,{ts,xs,us},{ (xs-xt)'*(xs-xt)           });
+[~,betamax] = ode45(@(t,beta)  (4/pi)*abs(sin(harm.*t)),tspan,zeros(size(harm)));
+[~,betamin] = ode45(@(t,beta) -(4/pi)*abs(sin(harm.*t)),tspan,zeros(size(harm)));
 
-FinalCost = Function('Psi',{xs}      ,{ 0  });
+for idim = 1:dim
+   subplot(1,dim,idim)
+   hold on
+   bt_value  = bt(bspan,tspan',-1,idim);
+   plot(bt_value,tspan,'b')
+   plot(bspan,0*bspan,'k','Marker','o')
+   xline(0)
+   bt_value  = bt(bspan,tspan',1,idim); 
+   plot(bt_value,tspan,'r')
+   xlim([-1.5 1.5])
+   
 
-iocp = ocp(idyn,PathCost,FinalCost,'SymCalculations',false);
+   plot(-betamax(1,idim) + betamax(:,idim),tspan,'k','LineWidth',5)
+   plot(-betamin(2,idim) + betamin(:,idim),tspan,'k','LineWidth',5)
 
-ControlGuess = ZerosControl(idyn);
-[OptControl ,OptState] = IpoptSolver(iocp,ControlGuess);
+   title("\beta_{"+harm(idim)+"}")
+   ylabel('time')
+   xlabel("\beta_"+harm(idim))
 
-%%
-clf 
-subplot(2,1,1)
-plot3(FreeState(1,:),FreeState(2,:),FreeState(3,:))
-hold on 
-plot3(xt(1),xt(2),xt(3),'Marker','o')
-grid on 
-title('Free')
-subplot(2,1,2)
-plot3(OptState(1,:),OptState(2,:),OptState(3,:))
-hold on 
-plot3(xt(1),xt(2),xt(3),'Marker','o')
-grid on
-title('Opt')
-
+end
 

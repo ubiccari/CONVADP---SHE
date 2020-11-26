@@ -1,3 +1,5 @@
-\beamer@sectionintoc {1}{Introducción}{3}{0}{1}
-\beamer@sectionintoc {2}{Control óptimo de lazo abierto}{9}{0}{2}
-\beamer@sectionintoc {3}{Control óptimo de lazo cerrado}{26}{0}{3}
+\babel@toc {spanish}{}
+\beamer@sectionintoc {1}{Selective Harmonic Elimination}{3}{0}{1}
+\beamer@sectionintoc {2}{Coeficientes de Fourier como sistemas dinámicos}{9}{0}{2}
+\beamer@sectionintoc {3}{Formulación como problema de control}{14}{0}{3}
+\beamer@sectionintoc {4}{Experimentos numéricos}{22}{0}{4}

@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Selective Harmonic Elimination as dynamical system}{2}{section.2}%
+\contentsline {section}{\numberline {3}Formulación del problema control óptimo}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Condiciones para la obtención de controles \emph {bang-bang}}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}OC SHE de dos niveles con simetría de cuarto de onda}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Experimentos numéricos}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Numerical solution of OCP-SHE}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Resultados}{8}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Conclusiones}{10}{section.5}%

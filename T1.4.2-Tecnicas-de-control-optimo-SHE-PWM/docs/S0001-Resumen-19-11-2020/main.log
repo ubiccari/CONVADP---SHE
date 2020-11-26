@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.9)  19 NOV 2020 15:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.9)  20 NOV 2020 09:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -513,11 +513,35 @@ LaTeX Info: Redefining \bm on input line 209.
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/beamer/multimedia.sty
 Package: multimedia 2012/05/02 ver 0.02
 \mm@movie=\count310
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+) (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2020/03/22 3.42 The Babel package
+ (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2020/03/22 3.42 Babel switching mechanism
+) (/usr/local/texlive/2020/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
+ (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2020/03/22 3.42 Babel common definitions
+\babel@savecnt=\count311
+\U@D=\dimen277
+ (/usr/local/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read3
+LaTeX Info: Redefining \textlatin on input line 2435.
+\bbl@dirlevel=\count312
+)
+\es@quottoks=\toks44
+\es@quotdepth=\count313
+Package babel Info: Making " an active character on input line 561.
+Package babel Info: Making . an active character on input line 662.
+Package babel Info: Making < an active character on input line 707.
+Package babel Info: Making > an active character on input line 707.
+))) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count311
+\l__kernel_color_stack_int=\count314
 \l__pdf_internal_box=\box73
 ) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.aux
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+
 
 LaTeX Warning: Label `ode' multiply defined.
 
@@ -589,20 +613,26 @@ LaTeX Font Info:    ... okay on input line 7.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count312
-\scratchdimen=\dimen277
+\scratchcounter=\count315
+\scratchdimen=\dimen278
 \scratchbox=\box74
-\nofMPsegments=\count313
-\nofMParguments=\count314
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count315
-\MPscratchDim=\dimen278
-\MPnumerator=\count316
-\makeMPintoPDFobject=\count317
-\everyMPtoPDFconversion=\toks45
+\nofMPsegments=\count316
+\nofMParguments=\count317
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count318
+\MPscratchDim=\dimen279
+\MPnumerator=\count319
+\makeMPintoPDFobject=\count320
+\everyMPtoPDFconversion=\toks46
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros
@@ -615,7 +645,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count318
+\c@section@level=\count321
 )
 LaTeX Info: Redefining \ref on input line 7.
 LaTeX Info: Redefining \pageref on input line 7.
@@ -685,22 +715,28 @@ Dictionary: translator-months-dictionary, Language: English
 Dictionary: translator-numbers-dictionary, Language: English 
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.nav) [1{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+)
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
+ (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.nav) [1{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-] (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.toc) [2
+] (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+) [2
 
 ] (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/contents/P00-Intro.tex [3
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 14.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 13.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [4
@@ -713,7 +749,7 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 
 ] [8
 
-]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/contents/P01-OpenLoop.tex [9
+]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/contents/P01-DynamicalSystems.tex [9
 
 ] [10
 
@@ -735,27 +771,19 @@ Package epstopdf Info: Source file: <imgs/S0001.eps>
 (epstopdf)                    date: 2020-11-19 15:15:46
 (epstopdf)                    size: 36051 bytes
 (epstopdf)             Output file: <imgs/S0001-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-11-19 14:37:23
-(epstopdf)                    size: 15964 bytes
-(epstopdf)             Command: <repstopdf --outfile=imgs/S0001-eps-converted-to.pdf imgs/S0001.eps>
-(epstopdf)             \includegraphics on input line 78.
-runsystem(repstopdf --outfile=imgs/S0001-eps-converted-to.pdf imgs/S0001.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <imgs/S0001-eps-converted-to.pdf>
 (epstopdf)                    date: 2020-11-19 15:15:49
-(epstopdf)                    size: 15968 bytes.
-<imgs/S0001-eps-converted-to.pdf, id=427, 492.84125pt x 396.48125pt>
+(epstopdf)                    size: 15968 bytes
+(epstopdf)             Command: <repstopdf --outfile=imgs/S0001-eps-converted-to.pdf imgs/S0001.eps>
+(epstopdf)             \includegraphics on input line 79.
+Package epstopdf Info: Output file is already uptodate.
+<imgs/S0001-eps-converted-to.pdf, id=446, 492.84125pt x 396.48125pt>
 File: imgs/S0001-eps-converted-to.pdf Graphic file (type pdf)
 <use imgs/S0001-eps-converted-to.pdf>
-Package pdftex.def Info: imgs/S0001-eps-converted-to.pdf  used on input line 78.
-(pdftex.def)             Requested size: 246.42001pt x 198.24013pt.
+Package pdftex.def Info: imgs/S0001-eps-converted-to.pdf  used on input line 79.
+(pdftex.def)             Requested size: 197.133pt x 158.58968pt.
+ [13
 
-Overfull \vbox (2.53609pt too high) detected at line 78
- []
-
-[13
-
- </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/imgs/S0001-eps-converted-to.pdf>] [14
+ </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/imgs/S0001-eps-converted-to.pdf>]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/contents/P02-OCP.tex [14
 
 ] [15
 
@@ -765,22 +793,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{dyn}) has been
 
 \@EveryShipout@Output ...@Org@Shipout \box \@cclv 
                                                   
-l.124 \end{frame}
-                 ] [17
+l.37 \end{frame}
+                ] [17
 
 ] [18
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{hamil}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.172 \end{frame}
-                  [19
+l.85 \end{frame}
+                 [19
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{hamil}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.184 \end{frame}
-                  [20
+l.97 \end{frame}
+                 [20
 
 ]
 Package epstopdf Info: Source file: <imgs/bang-bang.eps>
@@ -790,16 +818,18 @@ Package epstopdf Info: Source file: <imgs/bang-bang.eps>
 (epstopdf)                    date: 2020-11-19 14:25:12
 (epstopdf)                    size: 18906 bytes
 (epstopdf)             Command: <repstopdf --outfile=imgs/bang-bang-eps-converted-to.pdf imgs/bang-bang.eps>
-(epstopdf)             \includegraphics on input line 191.
+(epstopdf)             \includegraphics on input line 104.
 Package epstopdf Info: Output file is already uptodate.
-<imgs/bang-bang-eps-converted-to.pdf, id=676, 493.845pt x 391.4625pt>
+<imgs/bang-bang-eps-converted-to.pdf, id=704, 493.845pt x 391.4625pt>
 File: imgs/bang-bang-eps-converted-to.pdf Graphic file (type pdf)
 <use imgs/bang-bang-eps-converted-to.pdf>
-Package pdftex.def Info: imgs/bang-bang-eps-converted-to.pdf  used on input line 191.
+Package pdftex.def Info: imgs/bang-bang-eps-converted-to.pdf  used on input line 104.
 (pdftex.def)             Requested size: 222.22818pt x 176.1565pt.
  [21
 
- </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/imgs/bang-bang-eps-converted-to.pdf>] [22
+ </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/imgs/bang-bang-eps-converted-to.pdf>]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/contents/P03-OCP-numerical.tex [22
+
+] [23
 
 ]
 Package epstopdf Info: Source file: <../D0002-FullReport/img/EX01_surf.eps>
@@ -809,21 +839,21 @@ Package epstopdf Info: Source file: <../D0002-FullReport/img/EX01_surf.eps>
 (epstopdf)                    date: 2020-11-16 09:25:57
 (epstopdf)                    size: 58121 bytes
 (epstopdf)             Command: <repstopdf --outfile=../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf ../D0002-FullReport/img/EX01_surf.eps>
-(epstopdf)             \includegraphics on input line 210.
+(epstopdf)             \includegraphics on input line 19.
 Package epstopdf Info: Output file is already uptodate.
-<../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf, id=741, 940.51375pt x 497.86pt>
+<../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf, id=801, 940.51375pt x 497.86pt>
 File: ../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf Graphic file (type pdf)
 <use ../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf>
-Package pdftex.def Info: ../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf  used on input line 210.
+Package pdftex.def Info: ../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf  used on input line 19.
 (pdftex.def)             Requested size: 329.18474pt x 174.2536pt.
 
-Overfull \hbox (21.89487pt too wide) in paragraph at lines 210--210
+Overfull \hbox (21.89487pt too wide) in paragraph at lines 19--19
  [] 
  []
 
-[23
+[24
 
- </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf>] [24
+ </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/../D0002-FullReport/img/EX01_surf-eps-converted-to.pdf>] [25
 
 ]
 Package epstopdf Info: Source file: <../D0002-FullReport/img/EX01_surf_3LVL.eps>
@@ -833,25 +863,21 @@ Package epstopdf Info: Source file: <../D0002-FullReport/img/EX01_surf_3LVL.eps>
 (epstopdf)                    date: 2020-11-16 09:27:13
 (epstopdf)                    size: 44524 bytes
 (epstopdf)             Command: <repstopdf --outfile=../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf ../D0002-FullReport/img/EX01_surf_3LVL.eps>
-(epstopdf)             \includegraphics on input line 229.
+(epstopdf)             \includegraphics on input line 38.
 Package epstopdf Info: Output file is already uptodate.
-<../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf, id=806, 1012.78375pt x 362.35374pt>
+<../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf, id=868, 1012.78375pt x 362.35374pt>
 File: ../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf Graphic file (type pdf)
 <use ../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf>
-Package pdftex.def Info: ../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf  used on input line 229.
+Package pdftex.def Info: ../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf  used on input line 38.
 (pdftex.def)             Requested size: 329.15082pt x 117.76357pt.
 
-Overfull \hbox (21.86095pt too wide) in paragraph at lines 229--229
+Overfull \hbox (21.86095pt too wide) in paragraph at lines 38--38
  [] 
  []
 
-[25
+[26
 
- </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf>]) (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/contents/P02-CloseLoop.tex [26
-
-] [27
-
-])
+ </Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/../D0002-FullReport/img/EX01_surf_3LVL-eps-converted-to.pdf>])
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -861,31 +887,34 @@ Overfull \hbox (21.86095pt too wide) in paragraph at lines 229--229
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 20.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 20.
- (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 20.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 20.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 21.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 21.
+ (/Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.aux
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 21.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 21.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 25CBDCB3D0F4EBCD9468BF97FC4E69F9;186.
+(rerunfilecheck)             Checksum: 59957407FB6D21B673F899F04D7BE392;284.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18397 strings out of 480608
- 357636 string characters out of 5903630
- 601481 words of memory out of 5000000
- 33737 multiletter control sequences out of 15000+600000
- 546187 words of font info for 65 fonts, out of 8000000 for 9000
+ 19480 strings out of 480608
+ 373537 string characters out of 5903630
+ 635212 words of memory out of 5000000
+ 34788 multiletter control sequences out of 15000+600000
+ 555207 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,20n,67p,889b,732s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfso1000.pfb>
-Output written on /Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.pdf (27 pages, 319961 bytes).
+ 58i,20n,67p,889b,855s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfso1000.pfb>
+Output written on /Users/djoroya/Documents/GitHub/CONVADP---SHE/T1.4.2-Tecnicas-de-control-optimo-SHE-PWM/docs/S0001-Resumen-19-11-2020/main.pdf (26 pages, 331377 bytes).
 PDF statistics:
- 963 PDF objects out of 1000 (max. 8388607)
- 878 compressed objects within 9 object streams
- 66 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 971 PDF objects out of 1000 (max. 8388607)
+ 885 compressed objects within 9 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

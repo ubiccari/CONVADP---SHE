@@ -1,19 +1,25 @@
-function [an,bn] = f2anbn(fvalues,tspan,Na,bharmonics)
+function [an,bn] = f2anbn(fvalues,tspan,aharmonics,bharmonics)
 
-    
+    [ndata,~] = size(fvalues);
     anfcn = @(f,n) (4/pi)*trapz(tspan,cos(n*tspan).*f);
     bnfcn = @(f,n) (4/pi)*trapz(tspan,sin(n*tspan).*f);
 
 
-    an = zeros(Na,1);
+    Na = length(aharmonics);
+    an = zeros(ndata,Na);
     for n = 1:Na
-       an(n) = anfcn(fvalues,n);
+        for id = 1:ndata
+            an(id,n) = anfcn(fvalues(id,:),aharmonics(n))';
+        end
     end
+    
   
     Nb = length(bharmonics);
-    bn = zeros(Nb,1);
+    bn = zeros(ndata,Nb);
     for n = 1:Nb
-       bn(n) = bnfcn(fvalues,bharmonics(n));
+        for id = 1:ndata
+            bn(id,n) = bnfcn(fvalues(id,:),bharmonics(n))';
+        end
     end
     
 end
